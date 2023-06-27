@@ -12,7 +12,7 @@ public class BattleShip {
         /*String player1, player2;
         String dato="";
         Boolean fin=false;
-        prueba desde afuera 
+        prueba desde afuera 3
 
         //se ingresan los nombres de los jugadoes
         System.out.println("---BATTLESHIPS---");
@@ -37,6 +37,7 @@ public class BattleShip {
         }*/
 
         obj.Tablero(obj.table1);
+         //prueba 2
 
         for(int i=0;i<2;i++){
             System.out.println("inserte las coordenadas de la fila");
