@@ -8,10 +8,7 @@ public class BattleShip {
         Jugador obj =new Jugador();
         
         int x,y,t;
-
-<<<<<<< HEAD
         obj.Tablero(obj.table1);//llamado al metodo para crear tablero
-=======
         String player1, player2;
         String dato="";
         Boolean fin=false;
