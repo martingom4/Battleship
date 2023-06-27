@@ -8,6 +8,14 @@ public class Jugador {
     String[][] table2=new String[9][9];//tablero para jugador 2
 
 
+    //INGRESAR NOMBRES DE JUGADORES
+    public void Nombres() throws IOException{
+        System.out.println("Ingrese jugador 1:");
+        player1 = libro.readLine();
+        System.out.println("Ingrese jugador 2:");
+        player2 = libro.readLine();
+    }
+
     //METODO CREAR TABLERO
     public String[][] Tablero(String table[][]){
         for(int i=0;i<table.length;i++){

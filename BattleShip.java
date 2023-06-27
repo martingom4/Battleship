@@ -9,33 +9,6 @@ public class BattleShip {
         
         int x,y,t;
         obj.Tablero(obj.table1);//llamado al metodo para crear tablero
-        String player1, player2;
-        String dato="";
-        Boolean fin=false;
-
-        //se ingresan los nombres de los jugadoes
-        System.out.println("---BATTLESHIPS---");
-        System.out.println("Ingrese jugador 1:");
-        player1 = libro.readLine();
-        System.out.println("Ingrese jugador 2:");
-        player2 = libro.readLine();
-
-        //inicia el juego
-        while(!fin){
-            System.out.println("\n--Turno de "+player1+"--");
-            dato = libro.readLine();
-            if(!dato.equals("FIN")){
-                System.out.println("\n--Turno de "+player2+"--");
-                dato = libro.readLine();
-                if(dato.equals("FIN")){
-                    fin=true;
-                }
-            }else{
-                fin=true;
-            }
-        }
-
-        obj.Tablero(obj.table1);
 
         for(int i=0;i<2;i++){
             System.out.println("inserte las coordenadas de la fila");
