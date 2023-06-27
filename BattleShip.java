@@ -9,6 +9,15 @@ public class BattleShip {
         
         int x,y,t;
 
+        String player1, player2;
+        
+        //se ingresan los nombres de los jugadoes
+        System.out.println("---BATTLESHIPS---");
+        System.out.println("Ingrese jugador 1:");
+        player1 = libro.readLine();
+        System.out.println("Ingrese jugador 2:");
+        player2 = libro.readLine();
+
         obj.Tablero(obj.table1);
         for(int i=0;i<2;i++){
             System.out.println("inserte las coordenadas de la fila");
