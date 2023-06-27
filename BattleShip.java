@@ -9,7 +9,7 @@ public class BattleShip {
         
         int x,y,t;
         obj.Tablero(obj.table1);//llamado al metodo para crear tablero
-        String player1, player2;
+        /*String player1, player2;
         String dato="";
         Boolean fin=false;
 
@@ -33,7 +33,7 @@ public class BattleShip {
             }else{
                 fin=true;
             }
-        }
+        }*/
 
         obj.Tablero(obj.table1);
 
