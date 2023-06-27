@@ -33,6 +33,8 @@ public class Jugador {
         if(j+tam_barco>table.length){
             System.out.println("exceso");
             return table;
+        }else if(int i=0){
+
         }else{
             for(int k=0;k<tam_barco;k++){
                 table[i][j+k]="0";
