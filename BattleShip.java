@@ -5,10 +5,6 @@ public class BattleShip {
         //aca se pondra todo el codigo principal del proyecto
         System.out.println();
         System.out.println();
-        // prueba
-        //comentario de ani
-        //cambio 2 ani
-        //prueba otra otra 
-        //cambio 3 martincito
+        
     }
 }
