@@ -39,7 +39,7 @@ public class BattleShip {
         }
 
         obj.Tablero(obj.table1);
->>>>>>> 2a692f1f85dc6dd4e6a8aaa73c77b1d8326128b5
+
         for(int i=0;i<2;i++){
             System.out.println("inserte las coordenadas de la fila");
             x=Integer.parseInt(libro.readLine());
