@@ -36,7 +36,7 @@ public class BattleShip {
         }*/
 
         obj.Tablero(obj.table1);
-         //prueba
+         //prueba 2
 
         for(int i=0;i<2;i++){
             System.out.println("inserte las coordenadas de la fila");
