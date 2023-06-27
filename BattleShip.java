@@ -12,6 +12,7 @@ public class BattleShip {
         /*String player1, player2;
         String dato="";
         Boolean fin=false;
+        prueba desde afuera 
 
         //se ingresan los nombres de los jugadoes
         System.out.println("---BATTLESHIPS---");
