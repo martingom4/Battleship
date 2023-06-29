@@ -3,22 +3,32 @@ import java.io.*;
 
 public class BattleShip {
     public static void main(String[] args) throws IOException {
-        BufferedReader libro = new BufferedReader(new InputStreamReader(System.in));
+                BufferedReader libro = new BufferedReader(new InputStreamReader(System.in));
+        String player1, player2;
         String dato="";
         Boolean fin=false;
 
-        //insertar metodo de ingresar nombres
-        //insertar metodo de colocar barcos
+        System.out.println("--BATTLESHIP--");
+
+        System.out.println("Ingrese nombre del jugador 1:");
+        player1=libro.readLine();
+        System.out.println("Ingrese nombre del jugador 2:");
+        player2=libro.readLine();
         
-        System.out.println("Ingrese FIN para terminar el juego.");
+        System.out.println("\n--"+player1+", inserte sus barcos--");
+        //insertar metodo de colocar barcos de jugador 1
+        System.out.println("\n--"+player2+", inserte sus barcos--");
+        //insertar metodo de colocar barcos de jugador 2
+        
+        System.out.println("\nIngrese FIN para terminar el juego.");
         
         while(!fin){
-            System.out.println("\n--Turno de (nombre de jugador 1)--");
+            System.out.println("\n--Turno de "+player1+"--");
             System.out.println("Ingrese coordenadas:");
             dato = libro.readLine();
             if(!dato.equals("FIN")){
                 //insertar metodo de atacar de jugador 1
-                System.out.println("\n--Turno de (nombre de jugador 2)--");
+                System.out.println("\n--Turno de "+player2+"--");
                 System.out.println("Ingrese coordenadas:");
                 dato = libro.readLine();
                 if(dato.equals("FIN")){

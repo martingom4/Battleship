@@ -7,18 +7,7 @@ public class Jugador {
     String[][] table1=new String[9][9];//tablero para jugador 1
     String[][] table2=new String[9][9];//tablero para jugador 2
 
-
-    //INGRESAR NOMBRES DE JUGADORES
-    public String[] Nombres() throws IOException{
-        String[] jugadores=new String[2];
-        System.out.println("Ingrese jugador 1:");
-        jugadores[0] = libro.readLine();
-        System.out.println("Ingrese jugador 2:");
-        jugadores[1] = libro.readLine();
-        return jugadores;
-    }
-
-    //METODO CREAR TABLERO
+    //METODO CREAR TABLERO (poner en archivo tablero)
     public String[][] Tablero(String table[][]){
         for(int i=0;i<table.length;i++){
             for(int j=0;j<table.length;j++){
@@ -28,7 +17,7 @@ public class Jugador {
         return table;
     }
 
-    // METODO PARA IMPRIMIR EL TABLERO
+    // METODO PARA IMPRIMIR EL TABLERO (poner en archivo tablero)
     public void MostrarTablero(String table[][]){
         for(int i=0;i<table.length;i++){
             for(int j=0;j<table.length;j++){
@@ -38,7 +27,7 @@ public class Jugador {
         }
     }
 
-    //METODO PARA BARCO HORIZONTAL
+    //METODO PARA BARCO HORIZONTAL (poner en archivo barco)
     public String[][] BarcoH(String table[][],int tam_barco,int i, int j){
         if(j+tam_barco>table.length){
             System.out.println("exceso");
@@ -51,7 +40,7 @@ public class Jugador {
         }
     }
     
-    //METODO PARA BARCO VERTICAL
+    //METODO PARA BARCO VERTICAL (poner en archivo barco)
     public String[][] BarcoV(String table[][],int tam_barco,int i, int j){
         if(j+tam_barco>table.length){
             System.out.println("exceso");
