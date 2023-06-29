@@ -32,9 +32,9 @@ public class BattleShip {
                 }
             }else{
                 fin=true;
-            }
-        }*/
-
+            }2
+            }*/     
+            
         obj.Tablero(obj.table1);
 
         for(int i=0;i<2;i++){
