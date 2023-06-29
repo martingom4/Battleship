@@ -9,11 +9,13 @@ public class Jugador {
 
 
     //INGRESAR NOMBRES DE JUGADORES
-    public void Nombres() throws IOException{
+    public String[] Nombres() throws IOException{
+        String[] jugadores=new String[2];
         System.out.println("Ingrese jugador 1:");
-        player1 = libro.readLine();
+        jugadores[0] = libro.readLine();
         System.out.println("Ingrese jugador 2:");
-        player2 = libro.readLine();
+        jugadores[1] = libro.readLine();
+        return jugadores;
     }
 
     //METODO CREAR TABLERO
