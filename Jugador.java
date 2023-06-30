@@ -38,41 +38,51 @@ public class Jugador {
 
     //METODO PARA BARCO HORIZONTAL
     public String[][] BarcoH(String table[][],int tam_barco,int i, int j){
-        for(int l=0;l<tam_barco;l++){
-            if(table[i][j+l].equals("0")){
-                System.out.println("Ya hay un barco");
-                break;
+        Boolean barco=true;
+        if(j+tam_barco>table.length){ //Condicional si se pasa del tablero
+            System.out.println("***NO HAY ESPACIO SUFICIENTE***");
+            barco=false;
+        }
+        if(barco){  //condicional si ya hay un barco en el tablero
+            for(int l=0;l<tam_barco;l++){
+                if(table[i][j+l].equals("0")){
+                    System.out.println("Ya hay un barco");
+                    barco=false;
+                    break;
+                }
             }
         }
-        if(j+tam_barco>table.length){
-            System.out.println("***NO HAY ESPACIO SUFICIENTE");
-            return table;
-        }else{
+        if(barco){ //condicional que crea el barco y guarda
             for(int k=0;k<tam_barco;k++){
                 table[i][j+k]="0";
             }
-            return table;
         }
+        return table;
     }
     
     
     //METODO PARA BARCO VERTICAL
     public String[][] BarcoV(String table[][],int tam_barco,int i, int j){
-        for(int l=0;l<tam_barco;l++){
-            if(table[i+l][j].equals("0")){
-                System.out.println("Ya hay un barco");
-                break;
-            }
-        }
+        Boolean barco=true;
         if(i+tam_barco>table.length){
             System.out.println("***NO HAY ESPACIO SUFICIENTE***");
-            return table;
-        }else{
+            barco=false;
+        }
+        if(barco){
+            for(int l=0;l<tam_barco;l++){
+                if(table[i+l][j].equals("0")){
+                    System.out.println("Ya hay un barco");
+                    barco=false;
+                    break;
+                }
+            }
+        }
+        if(barco){
             for(int k=0;k<tam_barco;k++){
                 table[i+k][j]="0";
             }
-            return table;
         }
+        return table;
     }
 
     //METODO PARA DISPARO

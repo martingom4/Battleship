@@ -1,7 +1,7 @@
 import java.io.*;
 public class BattleShip {
     static BufferedReader libro=new BufferedReader(new InputStreamReader(System.in));
-    static int x,y,t,opc_barco;
+    static int x,y,t,opc_barco=0;
     public static void main(String[] args) throws IOException {
     
         //aca se pondra todo el codigo principal del proyecto
@@ -36,40 +36,58 @@ public class BattleShip {
         obj.Tablero(obj.table1);//llamado al metodo para crear tablero
 
         //Barco
-        while(barco<4){
-            System.out.println("Colocar barco: \n1-Horizontal(hacia a la derecha)\n2-Vertical(hacia abajo)");
-            opc_barco=Integer.parseInt(libro.readLine());
-            switch(opc_barco){
-            case 1:
-                BattleShip.coordenadas();//Llamado la metodo de pedir coordenadas
-                obj.BarcoH(obj.table1,t,x,y);//llamado al metodo para guardar barco en horizontal
-                obj.MostrarTablero(obj.table1);//llamado al metodo para mostrar tablero
-                break;
-            case 2:
-                BattleShip.coordenadas();//Llamado la metodo de pedir coordenadas
-                obj.BarcoV(obj.table1,t,x,y);//llamado al metodo para guardar barco en horizontal
-                obj.MostrarTablero(obj.table1);//llamado al metodo para mostrar tablero
-                break;
-            default:
-                System.out.println("Ingrese una opcion valida mostrada");
-                break;
+        for(int i=0;i<4;i++){
+            try{
+                System.out.println("Colocar barco "+(i+1)+": \n1-Horizontal(hacia a la derecha)\n2-Vertical(hacia abajo)");
+                opc_barco=Integer.parseInt(libro.readLine());
+            }catch(Exception e){
+
             }
-        }
+            switch(opc_barco){
+                case 1:
+                    try{
+                        BattleShip.coordenadas();//Llamado la metodo de pedir coordenadas
+                        obj.BarcoH(obj.table1,t,x,y);//llamado al metodo para guardar barco en horizontal
+                        obj.MostrarTablero(obj.table1);//llamado al metodo para mostrar tablero
+                    }catch(Exception e){
+                        System.out.println("Favor introducir dato correctamente");
+                        i--;
+                    }
+                    break;
+                case 2:
+                    try{
+                        BattleShip.coordenadas();//Llamado la metodo de pedir coordenadas
+                        obj.BarcoV(obj.table1,t,x,y);//llamado al metodo para guardar barco en horizontal
+                        obj.MostrarTablero(obj.table1);//llamado al metodo para mostrar tablero
+                    }catch(Exception e){
+                        System.out.println("Favor introducir dato correctamente");
+                        i--;
+                    }
+                    break;
+                default:
+                    System.out.println("Ingrese una opcion valida mostrada");
+                    i--;
+                    break;
+            }opc_barco=0; //Fin del switch
+        }//fin del for 
+            
         
-        //Disparo
+        
+        /*Disparo
+        System.out.println("Inserte las coordenadas para el disparo!");
         System.out.println("inserte x");
         x=Integer.parseInt(libro.readLine());
         System.out.println("inserte y");
         y=Integer.parseInt(libro.readLine()); 
         obj.Ataque(obj.table1,x,y);//llamado al metodo para atacar
         obj.MostrarTablero(obj.table1);//llamado al metodo para mostrar tablero
-        
+        */
     }
 
     public static void coordenadas()throws IOException{
-        System.out.println("inserte las coordenadas de la fila");
+        System.out.println("inserte la coordenada en x");
                         x=Integer.parseInt(libro.readLine());
-                    System.out.println("inserte las coordenadas de la columna");
+                    System.out.println("inserte la coordenada en y");
                         y=Integer.parseInt(libro.readLine());
                     System.out.println("inserte tamaño del barco");
                         t=Integer.parseInt(libro.readLine());
