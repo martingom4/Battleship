@@ -17,13 +17,13 @@ public class Jugador {
     }
 
     //METODO CREAR TABLERO
-    public String[][] Tablero(String table[][]){
+    public void Tablero(String table[][]){
         for(int i=0;i<table.length;i++){
             for(int j=0;j<table.length;j++){
                 table[i][j]="-";
             }
         }
-        return table;
+        
     }
 
     // METODO PARA IMPRIMIR EL TABLERO
@@ -38,11 +38,15 @@ public class Jugador {
 
     //METODO PARA BARCO HORIZONTAL
     public String[][] BarcoH(String table[][],int tam_barco,int i, int j){
+        for(int l=0;l<tam_barco;l++){
+            if(table[i][j+l].equals("0")){
+                System.out.println("Ya hay un barco");
+                break;
+            }
+        }
         if(j+tam_barco>table.length){
-            System.out.println("exceso");
+            System.out.println("***NO HAY ESPACIO SUFICIENTE");
             return table;
-        }else if(int i=0){
-
         }else{
             for(int k=0;k<tam_barco;k++){
                 table[i][j+k]="0";
@@ -51,10 +55,17 @@ public class Jugador {
         }
     }
     
+    
     //METODO PARA BARCO VERTICAL
     public String[][] BarcoV(String table[][],int tam_barco,int i, int j){
-        if(j+tam_barco>table.length){
-            System.out.println("exceso");
+        for(int l=0;l<tam_barco;l++){
+            if(table[i+l][j].equals("0")){
+                System.out.println("Ya hay un barco");
+                break;
+            }
+        }
+        if(i+tam_barco>table.length){
+            System.out.println("***NO HAY ESPACIO SUFICIENTE***");
             return table;
         }else{
             for(int k=0;k<tam_barco;k++){
