@@ -33,9 +33,6 @@ public class BattleShip {
                         y=Integer.parseInt(dato.substring(1));
                         if ((x.matches("[A-J]*"))&&(0<y && y<11)){
                             //insertar metodo de colocar barcos de jugador 1
-                            System.out.println("x:"+x);
-                            System.out.println("y:"+y);
-                            System.out.println("tamaño:"+t);
                             valido1=true;
                         }else{
                             System.out.println("Valores invalidos.");
@@ -65,9 +62,6 @@ public class BattleShip {
                         y=Integer.parseInt(dato.substring(1));
                         if ((x.matches("[A-J]*"))&&(0<y && y<11)){
                             //insertar metodo de colocar barcos de jugador 1
-                            System.out.println("x:"+x);
-                            System.out.println("y:"+y);
-                            System.out.println("tamaño:"+t);
                             valido2=true;
                         }else{
                             System.out.println("Valores invalidos.");
@@ -94,8 +88,6 @@ public class BattleShip {
                         x=dato.substring(0, 1);
                         y=Integer.parseInt(dato.substring(1));
                         if ((x.matches("[A-J]*"))&&(0<y && y<11)){
-                            System.out.println("x:"+x);
-                            System.out.println("y:"+y);
                             valido1=true;
                             //insertar metodo de atacar de jugador 1
                             valido2=false;
@@ -113,8 +105,6 @@ public class BattleShip {
                                         x=dato.substring(0, 1);
                                         y=Integer.parseInt(dato.substring(1));
                                         if ((x.matches("[A-J]*"))&&(0<y && y<11)){
-                                            System.out.println("x:"+x);
-                                            System.out.println("y:"+y);
                                             valido2=true;
                                             //insertar metodo de atacar de jugador 2
                                         }else{
