@@ -7,7 +7,7 @@ public class BattleShip {
         String player1, player2;
         String dato="";
         String x;
-        int y;
+        int y, i, t;
         boolean valido1, valido2;
         Boolean fin=false;
 
@@ -17,47 +17,67 @@ public class BattleShip {
         player1=libro.readLine();
         System.out.println("Ingrese nombre del jugador 2:");
         player2=libro.readLine();
-        
+
         System.out.println("\n--"+player1+", inserte sus barcos--");
-        valido1=false;
-        while(!valido1){
-            System.out.println("Ingrese coordenadas:");
-            dato = libro.readLine();
-            try {    
-                x=dato.substring(0, 1);
-                y=Integer.parseInt(dato.substring(1));
-                if ((x.matches("[A-J]*"))&&(0<y && y<11)){
-                    //insertar metodo de colocar barcos de jugador 1
-                    System.out.println("x:"+x);
-                    System.out.println("y:"+y);
-                    valido1=true;
+        for (i=1; i<5; i++){
+            System.out.println("Barco "+i);
+            valido1=false;
+            while(!valido1){
+                System.out.println("Ingrese tamaño del barco:");
+                t = Integer.parseInt(libro.readLine());
+                if(0<t && t<5){
+                    System.out.println("Ingrese coordenadas:");
+                    dato = libro.readLine();
+                    try {    
+                        x=dato.substring(0, 1);
+                        y=Integer.parseInt(dato.substring(1));
+                        if ((x.matches("[A-J]*"))&&(0<y && y<11)){
+                            //insertar metodo de colocar barcos de jugador 1
+                            System.out.println("x:"+x);
+                            System.out.println("y:"+y);
+                            System.out.println("tamaño:"+t);
+                            valido1=true;
+                        }else{
+                            System.out.println("Valores invalidos.");
+                        }
+                    } catch (Exception e) {
+                        System.out.println("Dato incorrecto.");
+                    }
                 }else{
-                    System.out.println("Valores invalidos");
+                    System.out.println("Ingrese tamaño valido.");
                 }
-            } catch (Exception e) {
-                System.out.println("Dato incorrecto");
             }
         }
 
 
         System.out.println("\n--"+player2+", inserte sus barcos--");
-        valido2=false;
-        while(!valido2){
-            System.out.println("Ingrese coordenadas:");
-            dato = libro.readLine();
-            try {    
-                x=dato.substring(0, 1);
-                y=Integer.parseInt(dato.substring(1));
-                if ((x.matches("[A-J]*"))&&(0<y && y<11)){
-                    //insertar metodo de colocar barcos de jugador 2
-                    System.out.println("x:"+x);
-                    System.out.println("y:"+y);
-                    valido2=true;
+        for (i=1; i<5; i++){
+            System.out.println("Barco "+i);
+            valido2=false;
+            while(!valido2){
+                System.out.println("Ingrese tamaño del barco:");
+                t = Integer.parseInt(libro.readLine());
+                if(0<t && t<5){
+                    System.out.println("Ingrese coordenadas:");
+                    dato = libro.readLine();
+                    try {    
+                        x=dato.substring(0, 1);
+                        y=Integer.parseInt(dato.substring(1));
+                        if ((x.matches("[A-J]*"))&&(0<y && y<11)){
+                            //insertar metodo de colocar barcos de jugador 1
+                            System.out.println("x:"+x);
+                            System.out.println("y:"+y);
+                            System.out.println("tamaño:"+t);
+                            valido2=true;
+                        }else{
+                            System.out.println("Valores invalidos.");
+                        }
+                    } catch (Exception e) {
+                        System.out.println("Dato incorrecto.");
+                    }
                 }else{
-                    System.out.println("Valores invalidos");
+                    System.out.println("Ingrese tamaño valido.");
                 }
-            } catch (Exception e) {
-                System.out.println("Dato incorrecto");
             }
         }
         
