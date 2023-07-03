@@ -5,7 +5,8 @@ public class BattleShip {
     public static void main(String[] args) throws IOException {
     
         //aca se pondra todo el codigo principal del proyecto
-        Jugador obj =new Jugador();
+        Jugador player =new Jugador();
+        coordenadas coor = new coordenadas();
         
         int barco=0;
         String player1, player2;
@@ -33,7 +34,7 @@ public class BattleShip {
                 fin=true;
             }
         }*/
-        obj.Tablero(obj.table1);//llamado al metodo para crear tablero
+        player.Tablero(player.table1);//llamado al metodo para crear tablero
 
         //Barco
         for(int i=0;i<4;i++){
@@ -42,13 +43,14 @@ public class BattleShip {
                 opc_barco=Integer.parseInt(libro.readLine());
             }catch(Exception e){
 
-            }
+            }//fina try catch
             switch(opc_barco){
                 case 1:
                     try{
+                        t=player.TamañoBarco(player.ilustracion);
                         BattleShip.coordenadas();//Llamado la metodo de pedir coordenadas
-                        obj.BarcoH(obj.table1,t,x,y);//llamado al metodo para guardar barco en horizontal
-                        obj.MostrarTablero(obj.table1);//llamado al metodo para mostrar tablero
+                        i=player.BarcoH(player.table1,t,x,y,i);//llamado al metodo para guardar barco en horizontal
+                        player.MostrarTablero(player.table1);//llamado al metodo para mostrar tablero
                     }catch(Exception e){
                         System.out.println("Favor introducir dato correctamente");
                         i--;
@@ -56,9 +58,10 @@ public class BattleShip {
                     break;
                 case 2:
                     try{
+                        t=player.TamañoBarco(player.ilustracion);
                         BattleShip.coordenadas();//Llamado la metodo de pedir coordenadas
-                        obj.BarcoV(obj.table1,t,x,y);//llamado al metodo para guardar barco en horizontal
-                        obj.MostrarTablero(obj.table1);//llamado al metodo para mostrar tablero
+                        i=player.BarcoV(player.table1,t,x,y,i);//llamado al metodo para guardar barco en horizontal
+                        player.MostrarTablero(player.table1);//llamado al metodo para mostrar tablero
                     }catch(Exception e){
                         System.out.println("Favor introducir dato correctamente");
                         i--;
@@ -89,7 +92,6 @@ public class BattleShip {
                         x=Integer.parseInt(libro.readLine());
                     System.out.println("inserte la coordenada en y");
                         y=Integer.parseInt(libro.readLine());
-                    System.out.println("inserte tamaño del barco");
-                        t=Integer.parseInt(libro.readLine());
+                    
     }
 }
