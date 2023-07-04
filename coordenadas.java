@@ -10,7 +10,7 @@ public class coordenadas {
         String[]coordenadas2=new String[4];
 
 public class Coordenadas {
-    public int coordenadasy(String dato) throws IOException{
+    public int coordenadasy(String coordenada [], int i) throws IOException{
         int num;
         int y;
         try{
@@ -26,7 +26,7 @@ public class Coordenadas {
         return y;
     }
 
-    public int coordenadasx(String dato){
+    public int coordenadasx(String coordenada [], int i){
         String letra;
         int x;
         letra=dato.substring(0, 1);
@@ -55,13 +55,13 @@ public class Coordenadas {
         }
         return x;
     }
-    /*public String[] coor(String[]coordenada,int i) throws IOException{
+    public String[] coor(String[]coordenada,int i) throws IOException{
         System.out.println("Inserte coordenadas");
         coordenada[i]=libro.readLine();
         x=coordenadasx(coordenada,i);
         y=coordenadasy(coordenada,i);
         return coordenada;
-    }*/
+    }
 
     }
 }
