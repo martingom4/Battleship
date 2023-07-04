@@ -6,9 +6,11 @@ public class Jugador {
     String dato;
     String[][] table1=new String[9][9];//tablero para jugador 1
     String[][] table2=new String[9][9];//tablero para jugador 2
+
     int nbarco[]={2,1,1};
     int barco[]={2,3,4};
     String[] ilustracion={"00","000","0000"};
+
 
 
     //INGRESAR NOMBRES DE JUGADORES
@@ -20,27 +22,37 @@ public class Jugador {
     }
 
     //METODO CREAR TABLERO
+
     public void Tablero(String table[][]){
+    public String[][] Tablero(String table[][]){
+
         for(int i=0;i<table.length;i++){
             for(int j=0;j<table.length;j++){
                 table[i][j]="-";
             }
         }
-        
+        return table;
     }
 
     // METODO PARA IMPRIMIR EL TABLERO
     public void MostrarTablero(String table[][]){
+
         char arreglo1 []= {'A','B','C','D','E','F','G','H','I'};
         System.out.print("      1     2     3     4     5     6     7     8     9 \n");
         for(int i=0;i<table.length;i++){
             System.out.printf("\n %s",arreglo1[i]);
             for(int j=0;j<table.length;j++){
                 System.out.printf("%5s ",table[i][j]+" ");
+
+        for(int i=0;i<table.length;i++){
+            for(int j=0;j<table.length;j++){
+                System.out.print(table[i][j]+" ");
+
             }
             System.out.println();
         }
     }
+
     //METODO PARA TAMAÑO DE BARCO
     public int TamañoBarco(String[] b)throws IOException{
         int t=0;
@@ -117,6 +129,33 @@ public class Jugador {
             }
         }
         return n;
+
+
+    //METODO PARA BARCO HORIZONTAL
+    public String[][] BarcoH(String table[][],int tam_barco,int i, int j){
+        if(j+tam_barco>table.length){
+            System.out.println("exceso");
+            return table;
+        }else{
+            for(int k=0;k<tam_barco;k++){
+                table[i][j+k]="0";
+            }
+            return table;
+        }
+    }
+    
+    //METODO PARA BARCO VERTICAL
+    public String[][] BarcoV(String table[][],int tam_barco,int i, int j){
+        if(j+tam_barco>table.length){
+            System.out.println("exceso");
+            return table;
+        }else{
+            for(int k=0;k<tam_barco;k++){
+                table[i+k][j]="0";
+            }
+            return table;
+        }
+
     }
 
     //METODO PARA DISPARO
