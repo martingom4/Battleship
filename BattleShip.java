@@ -7,6 +7,7 @@ public class BattleShip {
         //aca se pondra todo el codigo principal del proyecto
         Jugador player =new Jugador();
         coordenadas coor = new coordenadas();
+        
 
         int barco=0;
         String player1, player2;
@@ -40,6 +41,8 @@ public class BattleShip {
             try{
                 System.out.println("Colocar barco "+(i+1)+": \n1-Horizontal(hacia a la derecha)\n2-Vertical(hacia abajo)");
                 opc_barco=Integer.parseInt(libro.readLine());
+                Limpiar.clean();
+
             }catch(Exception e){
 
             }//fina try catch
@@ -50,6 +53,7 @@ public class BattleShip {
                         BattleShip.coordenadas();//Llamado la metodo de pedir coordenadas
                         i=player.BarcoH(player.table1,t,x,y,i);//llamado al metodo para guardar barco en horizontal
                         player.MostrarTablero(player.table1);//llamado al metodo para mostrar tablero
+                        
                     }catch(Exception e){
                         System.out.println("Favor introducir dato correctamente");
                         i--;
@@ -61,6 +65,7 @@ public class BattleShip {
                         BattleShip.coordenadas();//Llamado la metodo de pedir coordenadas
                         i=player.BarcoV(player.table1,t,x,y,i);//llamado al metodo para guardar barco en horizontal
                         player.MostrarTablero(player.table1);//llamado al metodo para mostrar tablero
+                        
                     }catch(Exception e){
                         System.out.println("Favor introducir dato correctamente");
                         i--;
@@ -88,8 +93,10 @@ public class BattleShip {
     public static void coordenadas()throws IOException{
         System.out.println("inserte la coordenada en x");
                         x=Integer.parseInt(libro.readLine());
+                        Limpiar.clean();
                     System.out.println("inserte la coordenada en y");
                         y=Integer.parseInt(libro.readLine());
+                        Limpiar.clean();
 
     }
 }
