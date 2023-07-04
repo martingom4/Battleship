@@ -1,7 +1,16 @@
 import java.io.*;
 
 public class Coordenadas {
-    public int coordenadasy(String dato) throws IOException{
+    BufferedReader libro = new BufferedReader(new InputStreamReader(System.in));
+        String player1, player2;
+        String dato="";
+        int x, y, i, t;
+        boolean valido1, valido2;
+        Boolean fin=false;
+        String[]coordenadas1=new String[4];//arreglo que guarda las coordenadas
+        String[]coordenadas2=new String[4];
+
+    public int coordenadasy(String coordenada[],int i) throws IOException{
         int num;
         int y;
         try{
@@ -17,7 +26,7 @@ public class Coordenadas {
         return y;
     }
 
-    public int coordenadasx(String dato){
+    public int coordenadasx(String coordenada[],int i){
         String letra;
         int x;
         letra=dato.substring(0, 1);
@@ -45,5 +54,13 @@ public class Coordenadas {
             x=-1;
         }
         return x;
+    }
+
+    public String[] coor(String[]coordenada,int i) throws IOException{
+        System.out.println("Inserte coordenadas");
+        coordenada[i]=libro.readLine();
+        x=coordenadasx(coordenada,i);
+        y=coordenadasy(coordenada,i);
+        return coordenada;
     }
 }
