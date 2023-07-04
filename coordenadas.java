@@ -9,9 +9,9 @@ public class coordenadas {
         String[]coordenadas1=new String[3];//arreglo que guarda las coordenadas
         String[]coordenadas2=new String[3];
 
-    public int coordenadasy(String coordenada[],int i,int y) throws IOException{
+    public int coordenadasy(String coordenada[],int i) throws IOException{
         int num;
-        
+        int y;
         try{
             num=Integer.parseInt(coordenada[i].substring(1));
             if (0<num && num<11){
@@ -25,9 +25,9 @@ public class coordenadas {
         return y;
     }
 
-    public int coordenadasx(String coordenada[],int i,int x){
+    public int coordenadasx(String coordenada[],int i){
         String letra;
-        
+        int x;
         letra=coordenada[i].substring(0, 1);
         switch(letra){
             case "A":
@@ -76,10 +76,10 @@ public class coordenadas {
         }
         return x;
     }
-    public void coor(int i,String[]coordenada,int x, int y) throws IOException{
+    public String[] coor(String[]coordenada,int i) throws IOException{
         System.out.println("Inserte coordenadas");
         coordenada[i]=libro.readLine();
-           
+        return coordenada;
     }
 
 }

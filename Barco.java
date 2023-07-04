@@ -11,8 +11,8 @@ public class Barco {
     
     String[] direccion1=new String[3];//arrglo que guarda la direccion Horizontal o vertical del jugador 1
     String[] direccion2=new String[3];
-    int[] size1=new int[3]; // arreglo que guarda los tamños de los barcos del jugador 1
-    int[] size2=new int[3];
+    int[] size1=new int[10]; // arreglo que guarda los tamños de los barcos del jugador 1
+    int[] size2=new int[10];
     String[]coordenadas1=new String[3];//arreglo que guarda las coordenadas
     String[]coordenadas2=new String[3];
 
@@ -28,7 +28,7 @@ public int[] TamañoBarco(String[] ilus,int[]t,int i)throws IOException{
                     if(t[i]==barco[j] & nbarco[j]>0){//identificar tamaño de barco
                         n=false;
                         nbarco[j]=nbarco[j]-1;
-                        if(nbarco[j]==0){
+                        if(nbarco[j]==0){//cuando no hay barco disponible, se elimina la ilustracion
                             ilus[j]="-";
                         }
                         break;
