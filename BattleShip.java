@@ -65,19 +65,15 @@ public class BattleShip {
                 case 1:
                         boat.size1=boat.TamañoBarco(boat.ilustracion,boat.size1,i);//metodo encontrar el tamaño del barco
                         c.coor(c.coordenadas1,i);//Llamado al metodo de pedir coordenadas
-                        c.x=c.coordenadasx(c.coordenadas1,i);
-                        c.y=c.coordenadasy(c.coordenadas1,i);
-                        player.table1=player.BarcoH(player.table1,boat.size1,c.x,c.y,i);//llamado al metodo para guardar barco en horizontal
+                        System.out.println("dato i:"+i);
+                        player.table1=player.BarcoH(player.table1,boat.size1,c.x,c.y,i,boat.direccion1);//llamado al metodo para guardar barco en horizontal
                         player.MostrarTablero(player.table1);//llamado al metodo para mostrar tablero
                     
                     break;
                 case 2:
-                    
                         boat.size1=boat.TamañoBarco(boat.ilustracion,boat.size1,i);
                         c.coor(c.coordenadas1,i);//Llamado la metodo de pedir coordenadas
-                        c.x=c.coordenadasx(c.coordenadas1,i);
-                        c.y=c.coordenadasy(c.coordenadas1,i);
-                        player.table1=player.BarcoV(player.table1,boat.size1,c.x,c.y,i);//llamado al metodo para guardar barco en horizontal
+                        player.table1=player.BarcoV(player.table1,boat.size1,c.x,c.y,i,boat.direccion1);//llamado al metodo para guardar barco en horizontal
                         player.MostrarTablero(player.table1);//llamado al metodo para mostrar tablero
                     
                     break;
@@ -87,5 +83,6 @@ public class BattleShip {
                     break;
             }opc_barco=0; //Fin del switch
         }//fin del for 
+        boat.barcos(boat.size1,c.coordenadas1,boat.direccion1);
     }
 }

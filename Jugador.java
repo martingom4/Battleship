@@ -1,7 +1,7 @@
 import java.io.*;
 public class Jugador {
     BufferedReader libro=new BufferedReader(new InputStreamReader(System.in));
-
+    Barco boat=new Barco();
     String player1, player2;
     String dato;
     String[][] table1=new String[9][9];//tablero para jugador 1
@@ -41,7 +41,7 @@ public class Jugador {
     }
 
     //METODO PARA BARCO HORIZONTAL
-    public String[][] BarcoH(String table[][],int[] tam_barco,int i, int j,int n){
+    public String[][] BarcoH(String table[][],int[] tam_barco,int i, int j,int n,String[]sentido){
         Boolean barco=true;
         if(j+tam_barco[n]>table.length){ //Condicional si se pasa del tablero
             System.out.println("***NO HAY ESPACIO SUFICIENTE***");
@@ -61,14 +61,16 @@ public class Jugador {
         if(barco){ //condicional que crea el barco y guarda
             for(int k=0;k<tam_barco[n];k++){
                 table[i][j+k]="0";
+                
             }
             System.out.println("Barco guardado exitosamente");
+            sentido[n]="HORIZONTAL";
         }
         return table;
     }
     
     //METODO PARA BARCO VERTICAL
-    public String[][] BarcoV(String table[][],int[] tam_barco,int i, int j,int n){
+    public String[][] BarcoV(String table[][],int[] tam_barco,int i, int j,int n,String[]sentido){
         Boolean barco=true;
         if(i+tam_barco[n]>table.length){
             System.out.println("***NO HAY ESPACIO SUFICIENTE***");
@@ -90,6 +92,7 @@ public class Jugador {
                 table[i+k][j]="0";
             }
             System.out.println("Barco guardado exitosamente");
+            sentido[n]="VERTICAL";
         }
         return table;
     }
