@@ -24,7 +24,6 @@ public class Jugador {
                 table[i][j]="-";
             }
         }
-        
     }
 
     // METODO PARA IMPRIMIR EL TABLERO

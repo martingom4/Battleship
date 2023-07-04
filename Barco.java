@@ -40,9 +40,7 @@ public int[] TamañoBarco(String[] ilus,int[]tam,int i,int[]nbarco,int[]barco)th
         }
         return tam;
     }
-
-
-
+    
     public void barcos(int[]t,String[] coord,String[]sentido){
         for(int i=0;i<4;i++){
             System.out.println( "TamañBarco: "+t[i]);

@@ -16,7 +16,6 @@ public class BattleShip {
         player.Tablero(player.table2);//llamado al metodo para crear tablero del jugador 2
         player.Nombres();
         
-        
         //Barco jugador 1
         System.out.println("Jugador 1: "+player.player1);
         for(int i=0;i<4;i++){
