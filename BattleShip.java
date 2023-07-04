@@ -5,7 +5,7 @@ public class BattleShip {
         //aca se pondra todo el codigo principal del proyecto
         BufferedReader libro=new BufferedReader(new InputStreamReader(System.in));
         Jugador player =new Jugador();
-        coordenadas c = new coordenadas();
+        Coordenadas c = new Coordenadas();
         Barco boat = new Barco();
         
         Boolean barco=false;
@@ -19,7 +19,7 @@ public class BattleShip {
         //Barco jugador 1
         System.out.println("Jugador 1: "+player.player1);
         for(int i=0;i<4;i++){
-            
+    
                 System.out.println("Colocar barco "+(i+1)+": \n1-Horizontal(hacia a la derecha)\n2-Vertical(hacia abajo)");
                 opc_barco=Integer.parseInt(libro.readLine());
                 barco=false;
