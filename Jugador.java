@@ -29,10 +29,10 @@ public class Jugador {
 
     // METODO PARA IMPRIMIR EL TABLERO
     public void MostrarTablero(String table[][]){
-        char arreglo1 []= {'A','B','C','D','E','F','G','H','I'};
+        char letras []= {'A','B','C','D','E','F','G','H','I'};
         System.out.print("      1     2     3     4     5     6     7     8     9 \n");
         for(int i=0;i<table.length;i++){
-            System.out.printf("\n %s",arreglo1[i]);
+            System.out.printf("\n %s",letras[i]);
             for(int j=0;j<table.length;j++){
                 System.out.printf("%5s ",table[i][j]+" ");
             }
@@ -41,7 +41,7 @@ public class Jugador {
     }
 
     //METODO PARA BARCO HORIZONTAL
-    public String[][] BarcoH(String table[][],int[] tam_barco,int i, int j,int n,String[]sentido){
+    public Boolean BarcoH(String table[][],int[] tam_barco,int i, int j,int n,String[]sentido){
         Boolean barco=true;
         if(j+tam_barco[n]>table.length){ //Condicional si se pasa del tablero
             System.out.println("***NO HAY ESPACIO SUFICIENTE***");
@@ -61,16 +61,15 @@ public class Jugador {
         if(barco){ //condicional que crea el barco y guarda
             for(int k=0;k<tam_barco[n];k++){
                 table[i][j+k]="0";
-                
             }
             System.out.println("Barco guardado exitosamente");
             sentido[n]="HORIZONTAL";
         }
-        return table;
+        return barco;
     }
     
     //METODO PARA BARCO VERTICAL
-    public String[][] BarcoV(String table[][],int[] tam_barco,int i, int j,int n,String[]sentido){
+    public Boolean BarcoV(String table[][],int[] tam_barco,int i, int j,int n,String[]sentido){
         Boolean barco=true;
         if(i+tam_barco[n]>table.length){
             System.out.println("***NO HAY ESPACIO SUFICIENTE***");
@@ -94,7 +93,7 @@ public class Jugador {
             System.out.println("Barco guardado exitosamente");
             sentido[n]="VERTICAL";
         }
-        return table;
+        return barco;
     }
 
     //METODO PARA DISPARO
