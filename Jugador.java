@@ -48,6 +48,7 @@ public class Jugador {
             System.out.println("Tamaño de barcos disponibles disponibles:\n2:"+b[0]+"\n3:"+b[1]+"\n4:"+b[2]);
             System.out.println("Escoga el tamaño del barco");
             t=Integer.parseInt(libro.readLine());
+            Limpiar.clean();
             if(t>1 & t<5){//comprobar que sea un tamaño de barco real
                 for(int i=0;i<3;i++){
                     if(t==barco[i] & nbarco[i]>0){//identificar tamaño de barco
