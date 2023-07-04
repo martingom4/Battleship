@@ -94,7 +94,7 @@ public class BattleShip {
         System.out.println("inserte la coordenada en x");
                         x=Integer.parseInt(libro.readLine());
                         Limpiar.clean();
-                    System.out.println("inserte la coordenada en y");
+                        System.out.println("inserte la coordenada en y");
                         y=Integer.parseInt(libro.readLine());
                         Limpiar.clean();
 
