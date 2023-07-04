@@ -5,7 +5,7 @@ public class BattleShip {
         //aca se pondra todo el codigo principal del proyecto
         BufferedReader libro=new BufferedReader(new InputStreamReader(System.in));
         Jugador player =new Jugador();
-        Coordenadas c = new Coordenadas();
+        coordenadas c = new coordenadas();
         Barco boat = new Barco();
         
         Boolean barco=false;
