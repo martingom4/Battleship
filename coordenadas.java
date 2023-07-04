@@ -1,6 +1,7 @@
 import java.io.*;
-public class coordenadas {
-        BufferedReader libro = new BufferedReader(new InputStreamReader(System.in));
+
+public class Coordenadas {
+    BufferedReader libro = new BufferedReader(new InputStreamReader(System.in));
         String player1, player2;
         String dato="";
         int x, y, i, t;
@@ -9,12 +10,14 @@ public class coordenadas {
         String[]coordenadas1=new String[4];//arreglo que guarda las coordenadas
         String[]coordenadas2=new String[4];
 
+
+
     public int coordenadasy(String coordenada[],int i) throws IOException{
         int num;
         int y;
         try{
-            num=Integer.parseInt(coordenada[i].substring(1));
-            if (num>0 && num<11){
+            num=Integer.parseInt(dato.substring(1));
+            if (0<num && num<11){
                 y=num-1;
             }else{
                 y=-1;
@@ -28,51 +31,29 @@ public class coordenadas {
     public int coordenadasx(String coordenada[],int i){
         String letra;
         int x;
-        letra=coordenada[i].substring(0, 1);
-        switch(letra){
-            case "A":
-                x=0;
-            break;
-            
-            case "B":
-                x=1;
-            break;
-            
-            case "C":
-                x=2;
-            break;
-            
-            case "D":
-                x=3;
-            break;
-            
-            case "E":
-                x=4;
-            break;
-            
-            case "F":
-                x=5;
-            break;
-            
-            case "G":
-                x=6;
-            break;
-            
-            case "H":
-                x=7;
-            break;
-            
-            case "I":
-                x=8;
-            break;
-            
-            case "J":
-                x=9;
-            break;
-            
-            default:
-                x=-1;
-            break;
+        letra=dato.substring(0, 1);
+        if(letra.equals("A") || letra.equals("a")){
+            x=0;
+        }else if(letra.equals("B") || letra.equals("b")){
+            x=1;
+        }else if(letra.equals("C") || letra.equals("c")){
+            x=2;
+        }else if(letra.equals("D") || letra.equals("d")){
+            x=3;
+        }else if(letra.equals("E") || letra.equals("e")){
+            x=4;
+        }else if(letra.equals("F") || letra.equals("f")){
+            x=5;
+        }else if(letra.equals("G") || letra.equals("g")){
+            x=6;
+        }else if(letra.equals("H") || letra.equals("h")){
+            x=7;
+        }else if(letra.equals("I") || letra.equals("i")){
+            x=8;
+        }else if(letra.equals("J") || letra.equals("j")){
+            x=9;
+        }else{
+            x=-1;
         }
         return x;
     }
@@ -85,4 +66,3 @@ public class coordenadas {
     }
 
 }
-
