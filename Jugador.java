@@ -5,9 +5,16 @@ public class Jugador {
     String dato;
     String[][] table1=new String[9][9];//tablero para jugador 1
     String[][] table2=new String[9][9];//tablero para jugador 2
+<<<<<<< HEAD
+
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> b74cbb472dcbace49a9d6d7935049c1abe8e78ae
     int nbarco[]={2,1,1};
     int barco[]={2,3,4};
     String[] ilustracion={"00","000","0000"};
+>>>>>>> 4e88899784f01e2165250f94bb979eaeee16adb1
 
 
     //INGRESAR NOMBRES DE JUGADORES
@@ -41,40 +48,17 @@ public class Jugador {
     }
 
     //METODO PARA TAMAÑO DE BARCO
-    public int TamañoBarco(String[] b)throws IOException{
-        int t=0;
-        Boolean n=true;
-        while(n){
-            System.out.println("Tamaño de barcos disponibles disponibles:\n2:"+b[0]+"\n3:"+b[1]+"\n4:"+b[2]);
-            System.out.println("Escoga el tamaño del barco");
-            t=Integer.parseInt(libro.readLine());
-            if(t>1 & t<5){//comprobar que sea un tamaño de barco real
-                for(int i=0;i<3;i++){
-                    if(t==barco[i] & nbarco[i]>0){//identificar tamaño de barco
-                        n=false;
-                        nbarco[i]=nbarco[i]-1;
-                        if(nbarco[i]==0){
-                            b[i]="-";
-                        }
-                        break;
-                    }
-                }
-            }else{
-                System.out.println("Introduzca un tamaño de barco disponible");
-            }
-        }
-        return t;
-    }
+    
     //METODO PARA BARCO HORIZONTAL
-    public int BarcoH(String table[][],int tam_barco,int i, int j,int n){
+    public int BarcoH(String table[][],int[] tam_barco,int i, int j,int n){
         Boolean barco=true;
-        if(j+tam_barco>table.length){ //Condicional si se pasa del tablero
+        if(j+tam_barco[i]>table.length){ //Condicional si se pasa del tablero
             System.out.println("***NO HAY ESPACIO SUFICIENTE***");
             barco=false;
             n=n-1;
         }
         if(barco){  //condicional si ya hay un barco en el tablero
-            for(int l=0;l<tam_barco;l++){
+            for(int l=0;l<tam_barco[i];l++){
                 if(table[i][j+l].equals("0")){
                     System.out.println("Ya hay un barco");
                     barco=false;
@@ -84,9 +68,10 @@ public class Jugador {
             }
         }
         if(barco){ //condicional que crea el barco y guarda
-            for(int k=0;k<tam_barco;k++){
+            for(int k=0;k<tam_barco[i];k++){
                 table[i][j+k]="0";
             }
+            
         }
        
         return n;
@@ -94,15 +79,15 @@ public class Jugador {
 
 
     //METODO PARA BARCO VERTICAL
-    public int BarcoV(String table[][],int tam_barco,int i, int j,int n){
+    public int BarcoV(String table[][],int[] tam_barco,int i, int j,int n){
         Boolean barco=true;
-        if(i+tam_barco>table.length){
+        if(i+tam_barco[i]>table.length){
             System.out.println("***NO HAY ESPACIO SUFICIENTE***");
             barco=false;
             n=n-1;
         }
         if(barco){
-            for(int l=0;l<tam_barco;l++){
+            for(int l=0;l<tam_barco[i];l++){
                 if(table[i+l][j].equals("0")){
                     System.out.println("Ya hay un barco");
                     barco=false;
@@ -112,9 +97,10 @@ public class Jugador {
             }
         }
         if(barco){
-            for(int k=0;k<tam_barco;k++){
+            for(int k=0;k<tam_barco[i];k++){
                 table[i+k][j]="0";
             }
+            
         }
         return n;
     }

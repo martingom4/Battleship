@@ -1,12 +1,13 @@
 import java.io.*;
 public class BattleShip {
     static BufferedReader libro=new BufferedReader(new InputStreamReader(System.in));
-    static int x,y,t,opc_barco=0;
+    static int t,opc_barco=0;
     public static void main(String[] args) throws IOException {
 
         //aca se pondra todo el codigo principal del proyecto
         Jugador player =new Jugador();
-        coordenadas coor = new coordenadas();
+        coordenadas c = new coordenadas();
+        Barco boat = new Barco();
         
 
         int barco=0;
@@ -35,7 +36,7 @@ public class BattleShip {
             }
         }*/
         player.Tablero(player.table1);//llamado al metodo para crear tablero
-
+        
         //Barco
         for(int i=0;i<4;i++){
             try{
@@ -49,9 +50,11 @@ public class BattleShip {
             switch(opc_barco){
                 case 1:
                     try{
-                        t=player.TamañoBarco(player.ilustracion);
-                        BattleShip.coordenadas();//Llamado la metodo de pedir coordenadas
-                        i=player.BarcoH(player.table1,t,x,y,i);//llamado al metodo para guardar barco en horizontal
+                        boat.size1=boat.TamañoBarco(boat.ilustracion,boat.size1,i);
+                        c.coor(i,c.coordenadas1,c.x,c.y);//Llamado la metodo de pedir coordenadas
+                        c.x=c.coordenadasx(c.coordenadas1,i,c.x);
+                        c.y=c.coordenadasy(c.coordenadas1,i,c.y);
+                        i=player.BarcoH(player.table1,boat.size1,c.x,c.y,i);//llamado al metodo para guardar barco en horizontal
                         player.MostrarTablero(player.table1);//llamado al metodo para mostrar tablero
                         
                     }catch(Exception e){
@@ -61,9 +64,11 @@ public class BattleShip {
                     break;
                 case 2:
                     try{
-                        t=player.TamañoBarco(player.ilustracion);
-                        BattleShip.coordenadas();//Llamado la metodo de pedir coordenadas
-                        i=player.BarcoV(player.table1,t,x,y,i);//llamado al metodo para guardar barco en horizontal
+                        boat.size1=boat.TamañoBarco(boat.ilustracion,boat.size1,i);
+                        c.coor(i,c.coordenadas1,c.x,c.y);//Llamado la metodo de pedir coordenadas
+                        c.x=c.coordenadasx(c.coordenadas1,i,c.x);
+                        c.y=c.coordenadasy(c.coordenadas1,i,c.y);
+                        i=player.BarcoV(player.table1,boat.size1,c.x,c.y,i);//llamado al metodo para guardar barco en horizontal
                         player.MostrarTablero(player.table1);//llamado al metodo para mostrar tablero
                         
                     }catch(Exception e){
@@ -77,8 +82,8 @@ public class BattleShip {
                     break;
             }opc_barco=0; //Fin del switch
         }//fin del for 
-            
         
+        //boat.xyz(boat.size1);
         
         /*Disparo
         System.out.println("Inserte las coordenadas para el disparo!");
@@ -90,6 +95,12 @@ public class BattleShip {
         obj.MostrarTablero(obj.table1);//llamado al metodo para mostrar tablero
         */
     }
+<<<<<<< HEAD
+
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> b74cbb472dcbace49a9d6d7935049c1abe8e78ae
     public static void coordenadas()throws IOException{
         System.out.println("inserte la coordenada en x");
                         x=Integer.parseInt(libro.readLine());
@@ -99,4 +110,5 @@ public class BattleShip {
                         Limpiar.clean();
 
     }
+>>>>>>> 4e88899784f01e2165250f94bb979eaeee16adb1
 }
