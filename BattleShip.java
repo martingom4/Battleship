@@ -9,13 +9,16 @@ public class BattleShip {
         Barco boat = new Barco();
         Boolean barco=false;
         Boolean fin=false;
-        String [][] t = new String[9][9];
+        int turnos;
         int opc_barco=0;
+        
         player.Tablero(player.table1);//llamado al metodo para crear tablero del jugador 1
         player.Tablero(player.table2);//llamado al metodo para crear tablero del jugador 2
+        player.Tablero(player.table3);// se llama al metodo de tablero para disparo del jugador 1
+        player.Tablero(player.table4);// se llama al metodo de tablero para disparo del jugador 2
         player.Nombres();
         
-        //Barco jugador 1
+        //Barco jugador 1;
         System.out.println("Jugador 1: "+player.player1);
         Limpiar.clean();
         for(int i=0;i<4;i++){
@@ -53,7 +56,7 @@ public class BattleShip {
                     break;
             }opc_barco=0; //Fin del switch
         }//fin del for 
-        boat.barcos(boat.size1,c.coordenadas1,boat.direccion1);
+        boat.barcos(boat.size1,c.coordenadas1,boat.direccion1); 
 
         //barco jugador 2
         System.out.println("Jugador 2: "+player.player2);
@@ -61,6 +64,7 @@ public class BattleShip {
 
                 System.out.println("Colocar barco "+(i+1)+": \n1-Horizontal(hacia a la derecha)\n2-Vertical(hacia abajo)");
                 opc_barco=Integer.parseInt(libro.readLine());
+                player.Tablero(player.table2);
                 Limpiar.clean();
                 barco=false;
             switch(opc_barco){
@@ -91,5 +95,25 @@ public class BattleShip {
             }opc_barco=0; //Fin del switch
         }//fin del for 
         boat.barcos(boat.size2,c.coordenadas2,boat.direccion2);
-    }
-}
+
+
+        player.MostrarTablero(player.table1);
+        System.out.println("ingrese que jugador quiere que vaya primero el jugador 1 o el jugador 2 ");
+        turnos= Integer.parseInt(libro.readLine());
+        int i=0;
+       switch (turnos) {
+        case 1:
+            System.out.println("Es el turno del jugador 1 ");
+            System.out.println("Ingrse las coordenadas en las que quiere disparar");
+            player.MostrarTablero(player.table3);
+            c.coor(c.coordenadas1,i);
+            Coordenadas.disparar(player.table2, c.coordenadas2);
+            System.out.println("ganaste");
+            break;
+       
+        default:
+            break;
+       }
+
+    }// fin del static 
+}// fin de la clase 
