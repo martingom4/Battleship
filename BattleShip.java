@@ -99,7 +99,7 @@ public class BattleShip {
         System.out.println("ingrese que jugador quiere que vaya primero. El jugador 1 o el jugador 2 ");
         turnos= Integer.parseInt(libro.readLine());
         
-            
+                i=0;
                 switch (turnos) {
                 case 1:
                     System.out.println("Es el turno del jugador 1");
@@ -117,12 +117,12 @@ public class BattleShip {
                     c.Disparar(player.table1, c.coordenadas2,i);
                     
                 default:
-
+                    System.out.println("La opción insertada en invalida. Ingresar jugador nuevamente");
                     break;
             }
     
     
-        }while(fin);
+        }while(!fin);
 
 
     }// fin del static 
