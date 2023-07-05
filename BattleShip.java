@@ -96,7 +96,7 @@ public class BattleShip {
         boat.barcos(boat.size2,c.coordenadas2,boat.direccion2); 
 
         do {
-        System.out.println("ingrese que jugador quiere que vaya primero el jugador 1 o el jugador 2 ");
+        System.out.println("ingrese que jugador quiere que vaya primero. El jugador 1 o el jugador 2 ");
         turnos= Integer.parseInt(libro.readLine());
         
             
@@ -112,7 +112,7 @@ public class BattleShip {
                 case 2:
                     System.out.println("Es el turno del jugador 2 ");
                     System.out.println("Ingrese las coordenadas en las que quiere disparar");
-                    player.MostrarTablero(player.table3);
+                    player.MostrarTablero(player.table4);
                     c.coor(c.coordenadas2,i);
                     c.Disparar(player.table1, c.coordenadas2,i);
                     
