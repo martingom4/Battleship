@@ -42,7 +42,7 @@ public class BattleShip {
                         }
                     break;
                 case 2:                     
-                        boat.size1=boat.TamañoBarco(boat.ilustracion1,boat.size1,i,boat.nbarco1,boat.barco1);  
+                    boat.size1=boat.TamañoBarco(boat.ilustracion1,boat.size1,i,boat.nbarco1,boat.barco1);  
                         Limpiar.clean();                      
                         while(!barco){
                             player.MostrarTablero(player.table1);                           
@@ -96,10 +96,10 @@ public class BattleShip {
         boat.barcos(boat.size2,c.coordenadas2,boat.direccion2); 
 
         do {
-        System.out.println("ingrese que jugador quiere que vaya primero el jugador 1 o el jugador 2 ");
+        System.out.println("ingrese que jugador quiere que vaya primero. El jugador 1 o el jugador 2 ");
         turnos= Integer.parseInt(libro.readLine());
         
-            
+                i=0;
                 switch (turnos) {
                 case 1:
                     System.out.println("Es el turno del jugador 1");
@@ -112,17 +112,17 @@ public class BattleShip {
                 case 2:
                     System.out.println("Es el turno del jugador 2 ");
                     System.out.println("Ingrese las coordenadas en las que quiere disparar");
-                    player.MostrarTablero(player.table3);
+                    player.MostrarTablero(player.table4);
                     c.coor(c.coordenadas2,i);
                     c.Disparar(player.table1, c.coordenadas2,i);
                     
                 default:
-
+                    System.out.println("La opción insertada en invalida. Ingresar jugador nuevamente");
                     break;
             }
     
     
-        }while(fin);
+        }while(!fin);
 
 
     }// fin del static 
