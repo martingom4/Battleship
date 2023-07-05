@@ -15,6 +15,7 @@ public class Jugador {
         player1 = libro.readLine();
         System.out.println("Ingrese jugador 2:");
         player2 = libro.readLine();
+        
     }
 
     //METODO CREAR TABLERO
@@ -27,7 +28,7 @@ public class Jugador {
     }
 
     // METODO PARA IMPRIMIR EL TABLERO (poner en archivo tablero)
-    public void MostrarTablero(String table[][]){
+    public String[][] MostrarTablero(String table[][]){
         char letras []= {'A','B','C','D','E','F','G','H','I'};
         System.out.print("      1     2     3     4     5     6     7     8     9 \n");
         for(int i=0;i<table.length;i++){
@@ -37,6 +38,7 @@ public class Jugador {
             }
             System.out.println();
         }
+        return table;
     }
 
     //METODO PARA BARCO HORIZONTAL
