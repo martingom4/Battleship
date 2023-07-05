@@ -12,22 +12,25 @@ public class Coordenadas {
         
        
 
-    public int coordenadasy(String coordenada[],int i) throws IOException{
-        int num;
-        int y;
-        try{
-            num=Integer.parseInt(coordenada[i].substring(1));
-            if (num>0 && num<11){
-                y=num-1;
-            }else{
-                y=-1;
+    public int coordenadasy(String coordenada[], int i) throws IOException {
+    int num;
+    int y;
+    try {
+        if (coordenada[i] != null) {  // Verificar si la cadena no es nula
+            num = Integer.parseInt(coordenada[i].substring(1));
+            if (num > 0 && num < 11) {
+                y = num - 1;
+            } else {
+                y = -1;
             }
-        }catch(Exception e){
-            y=-1;
+        } else {
+            y = -1;
         }
-        return y;
+    } catch (Exception e) {
+        y = -1;
     }
-
+    return y;
+}
     public int coordenadasx(String coordenada[],int i){
         String letra;
         int x;
@@ -87,10 +90,9 @@ public class Coordenadas {
         return coordenada;
     }
 
-    void Disparar(String[][] table, String[] coordenada, int i)throws IOException{
-        
-        int x = coordenadasx(coordenada, i);
-        int y = coordenadasy(coordenada, i);
+    public void Disparar(String[][] table, String[] coordenada, int i)throws IOException{
+        int x = coordenadasx(coordenada,i);
+        int y = coordenadasy(coordenada,i );
 
         if (x >= 0 && x < table.length && y >= 0 && y < table[0].length) {
             if (table[x][y].equals("-")) {
@@ -98,17 +100,13 @@ public class Coordenadas {
                 table[x][y] = "-";
             } else if (table[x][y].equals("x")) {
                 System.out.println("Ya has disparado aquí antes");
-            } else if (table[x][y].equals("0")) {
-                System.out.println("Has impactado un barco");
+            }else if (table[x][y].equals("0")) {
+            System.out.println("Has impactado un barco");
+            table[x][y] = "*"; // Marcar como impacto en un barco con "*"
             }
+            
         } else {
             System.out.println("Coordenadas inválidas");
         }
     }
-
-    public static void disparar(String[][] table3, String[] coordenadas32) {
-    }
-    
-
-
 }
