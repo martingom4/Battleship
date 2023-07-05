@@ -29,7 +29,7 @@ public class Coordenadas {
     public int coordenadasx(String coordenada[],int i){
         String letra;
         int x;
-        letra=coordenada[i].substring(0, 1);
+        letra=coordenada[i].substring(0, 1).toUpperCase();
         switch(letra){
             case "A":
                 x=0;
