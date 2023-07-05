@@ -6,6 +6,8 @@ public class Coordenadas {
         int x, y, i, t;
         String[]coordenadas1=new String[4];//arreglo que guarda las coordenadas
         String[]coordenadas2=new String[4];
+        String[]coordenadas3=new String[4];
+        String[]coordenadas4=new String[4];
          
         
        
@@ -84,5 +86,29 @@ public class Coordenadas {
         y=coordenadasy(coordenada,i);
         return coordenada;
     }
+
+    void Disparar(String[][] table, String[] coordenada, int i)throws IOException{
+        
+        int x = coordenadasx(coordenada, i);
+        int y = coordenadasy(coordenada, i);
+
+        if (x >= 0 && x < table.length && y >= 0 && y < table[0].length) {
+            if (table[x][y].equals("-")) {
+                System.out.println("Agua");
+                table[x][y] = "-";
+            } else if (table[x][y].equals("x")) {
+                System.out.println("Ya has disparado aquí antes");
+            } else if (table[x][y].equals("0")) {
+                System.out.println("Has impactado un barco");
+            }
+        } else {
+            System.out.println("Coordenadas inválidas");
+        }
+    }
+
+    public static void disparar(String[][] table3, String[] coordenadas32) {
+    }
+    
+
 
 }
