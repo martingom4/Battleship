@@ -26,7 +26,7 @@ public class Jugador {
         }
     }
 
-    // METODO PARA IMPRIMIR EL TABLERO
+    // METODO PARA IMPRIMIR EL TABLERO (poner en archivo tablero)
     public void MostrarTablero(String table[][]){
         char letras []= {'A','B','C','D','E','F','G','H','I'};
         System.out.print("      1     2     3     4     5     6     7     8     9 \n");

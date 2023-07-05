@@ -1,5 +1,5 @@
 import java.io.*;
-public class coordenadas {
+public class Coordenadas {
         BufferedReader libro = new BufferedReader(new InputStreamReader(System.in));
         String player1, player2;
         String dato="";
@@ -25,57 +25,36 @@ public class coordenadas {
         return y;
     }
 
-    public int coordenadasx(String coordenada[],int i){
+  public int coordenadasx(String coordenada [], int i){
         String letra;
         int x;
-        letra=coordenada[i].substring(0, 1);
-        switch(letra){
-            case "A":
+        letra=dato.substring(0, 1);
+        if(letra.equals("A") || letra.equals("a")){
                 x=0;
-            break;
-            
-            case "B":
+        }else if(letra.equals("B") || letra.equals("b")){
                 x=1;
-            break;
-            
-            case "C":
+        }else if(letra.equals("C") || letra.equals("c")){
                 x=2;
-            break;
-            
-            case "D":
+        }else if(letra.equals("D") || letra.equals("d")){
                 x=3;
-            break;
-            
-            case "E":
+        }else if(letra.equals("E") || letra.equals("e")){
                 x=4;
-            break;
-            
-            case "F":
+        }else if(letra.equals("F") || letra.equals("f")){
                 x=5;
-            break;
-            
-            case "G":
+        }else if(letra.equals("G") || letra.equals("g")){
                 x=6;
-            break;
-            
-            case "H":
+        }else if(letra.equals("H") || letra.equals("h")){
                 x=7;
-            break;
-            
-            case "I":
+        }else if(letra.equals("I") || letra.equals("i")){
                 x=8;
-            break;
-            
-            case "J":
+        }else if(letra.equals("J") || letra.equals("j")){
                 x=9;
-            break;
-            
-            default:
+        }else{
                 x=-1;
-            break;
         }
         return x;
     }
+    
     public String[] coor(String[]coordenada,int i) throws IOException{
         System.out.println("Inserte coordenadas");
         coordenada[i]=libro.readLine();
@@ -85,4 +64,3 @@ public class coordenadas {
     }
 
 }
-
