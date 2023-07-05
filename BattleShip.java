@@ -38,8 +38,8 @@ public class BattleShip {
                         }
                     break;
                 case 2:                     
-                        boat.size1=boat.TamañoBarco(boat.ilustracion1,boat.size1,i,boat.nbarco1,boat.barco1);  
-                        Limpiar.clean();                      
+                    boat.size1=boat.TamañoBarco(boat.ilustracion1,boat.size1,i,boat.nbarco1,boat.barco1);  
+                    Limpiar.clean();                      
                         while(!barco){
                             player.MostrarTablero(player.table1);                           
                             c.coor(c.coordenadas1,i);//Llamado la metodo de pedir coordenadas
