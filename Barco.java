@@ -17,7 +17,7 @@ public class Barco {
 public int[] TamañoBarco(String[] ilus,int[]tam,int i,int[]nbarco,int[]barco)throws IOException{
         Boolean b=true;
         while(b){
-            System.out.println("Tamaño de barcos disponibles disponibles:\n2:"+ilus[0]+"\n3:"+ilus[1]+"\n4:"+ilus[2]);
+            System.out.println("Tamaño de barcos disponibles :\n2:"+ilus[0]+"\n3:"+ilus[1]+"\n4:"+ilus[2]);
             System.out.println("Escoga el tamaño del barco");
             tam[i]=Integer.parseInt(libro.readLine());
             if(tam[i]>1 & tam[i]<5){//comprobar que sea un tamaño de barco real
@@ -40,6 +40,7 @@ public int[] TamañoBarco(String[] ilus,int[]tam,int i,int[]nbarco,int[]barco)th
     
     public void barcos(int[]t,String[] coord,String[]sentido){
         for(int i=0;i<4;i++){
+            
             System.out.println( "TamañBarco: "+t[i]);
             System.out.println("sus coordenadas:"+coord[i]);
             System.out.println("su sentido es:"+sentido[i]);
