@@ -90,6 +90,7 @@ public class Coordenadas {
         return coordenada;
     }
 
+
     public void Disparar(String[][] table, String[] coordenada, int i)throws IOException{
         int x = coordenadasx(coordenada,i);
         int y = coordenadasy(coordenada,i );
@@ -103,10 +104,13 @@ public class Coordenadas {
             }else if (table[x][y].equals("0")) {
             System.out.println("Has impactado un barco");
             table[x][y] = "*"; // Marcar como impacto en un barco con "*"
+             Jugador TableAct = new Jugador();//creando nuevo objeto para mostrar el tablero actualizado
+             TableAct.MostrarTablero(table);
             }
-            
+           
         } else {
             System.out.println("Coordenadas inválidas");
         }
     }
+   
 }
