@@ -1,4 +1,10 @@
-//
+/*
+ * Integrantes:
+ * - David Zhang
+ * - Nicole Bustamante
+ * - Anilys Rodriguez
+ * - Martin Gomez
+ */
 import java.io.*;
 public class BattleShip {
     public static void main(String[] args) throws IOException {
