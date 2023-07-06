@@ -57,7 +57,7 @@ public class BattleShip {
                     break;
             }opc_barco=0; //Fin del switch
         }//fin del for 
-        boat.barcos(boat.size1,c.coordenadas1,boat.direccion1); 
+         
 
        //barco jugador 2
         System.out.println("Jugador 2: "+player.player2);
@@ -93,7 +93,7 @@ public class BattleShip {
                     break;
             }opc_barco=0; //Fin del switch
         }//fin del for 
-        boat.barcos(boat.size2,c.coordenadas2,boat.direccion2); 
+        
 
         do {
         System.out.println("ingrese que jugador quiere que vaya primero. El jugador 1 o el jugador 2 ");
@@ -104,18 +104,27 @@ public class BattleShip {
                 case 1:
                     System.out.println("Es el turno del jugador 1");
                     System.out.println("Ingrese las coordenadas en las que quiere disparar");
+                    System.out.println("tablero de barcos");
+                    player.MostrarTablero(player.table1);
+                    System.out.println("tablero de disparos");
                     player.MostrarTablero(player.table3);
-                    c.coor(c.coordenadas1, i);
-                    c.Disparar(player.table2, c.coordenadas1,i);
+                    c.coor(c.coordenadas3, i);
+                    c.Disparar(player.table2,player.table3, c.coordenadas3,i);
+                    System.out.println("tablero de disparos");
+                    player.MostrarTablero(player.table3);
 
                     break;
                 case 2:
                     System.out.println("Es el turno del jugador 2 ");
                     System.out.println("Ingrese las coordenadas en las que quiere disparar");
+                    System.out.println("tablero de barcos");
+                    player.MostrarTablero(player.table2);
+                    System.out.println("tablero de disparos");
                     player.MostrarTablero(player.table4);
-                    c.coor(c.coordenadas2,i);
-                    c.Disparar(player.table1, c.coordenadas2,i);
-                    
+                    c.coor(c.coordenadas4,i);
+                    c.Disparar(player.table1,player.table4, c.coordenadas4,i);
+                    System.out.println("tablero de disparos");
+                    player.MostrarTablero(player.table4);
                 default:
                     System.out.println("La opción insertada en invalida. Ingresar jugador nuevamente");
                     break;
@@ -123,7 +132,8 @@ public class BattleShip {
     
     
         }while(!fin);
-
+        boat.barcos(boat.size1,c.coordenadas1,boat.direccion1);
+        boat.barcos(boat.size2,c.coordenadas2,boat.direccion2); 
 
     }// fin del static 
 }// fin de la clase 

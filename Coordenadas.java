@@ -91,21 +91,21 @@ public class Coordenadas {
     }
 
 
-    public void Disparar(String[][] table, String[] coordenada, int i)throws IOException{
+    public void Disparar(String[][] table,String[][] table_d, String[] coordenada, int i)throws IOException{
         int x = coordenadasx(coordenada,i);
         int y = coordenadasy(coordenada,i );
 
         if (x >= 0 && x < table.length && y >= 0 && y < table[0].length) {
             if (table[x][y].equals("-")) {
                 System.out.println("Agua");
-                table[x][y] = "-";
-            } else if (table[x][y].equals("x")) {
+                table_d[x][y] = "f";
+            } else if (table[x][y].equals("X")) {
                 System.out.println("Ya has disparado aquí antes");
             }else if (table[x][y].equals("0")) {
             System.out.println("Has impactado un barco");
-            table[x][y] = "*"; // Marcar como impacto en un barco con "*"
-             Jugador TableAct = new Jugador();//creando nuevo objeto para mostrar el tablero actualizado
-             TableAct.MostrarTablero(table);
+            table_d[x][y] = "X"; // Marcar como impacto en un barco con "*"
+             //Jugador TableAct = new Jugador();//creando nuevo objeto para mostrar el tablero actualizado
+            // TableAct.NoMostrarPosicion(TableAct.tableroDisp);
             }
            
         } else {
