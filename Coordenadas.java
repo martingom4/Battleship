@@ -90,27 +90,38 @@ public class Coordenadas {
         return coordenada;
     }
 
-
+    //metodo para disparar 
     public void Disparar(String[][] table,String[][] table_d, String[] coordenada, int i)throws IOException{
-        int x = coordenadasx(coordenada,i);
-        int y = coordenadasy(coordenada,i );
+        x = coordenadasx(coordenada,i); //se guardan las coordenadas en x 
+        y = coordenadasy(coordenada,i );// se guardan las cordenadas en y 
 
-        if (x >= 0 && x < table.length && y >= 0 && y < table[0].length) {
+        if (x >= 0 && x < table.length && y >= 0 && y < table[0].length) { // se verifica que este dentro del tamaño del arreglo 
             if (table[x][y].equals("-")) {
                 System.out.println("Agua");
                 table_d[x][y] = "f";
-            } else if (table[x][y].equals("X")) {
+            } else if (table[x][y].equals("X")) { // se verifica si ya se hizo el disparo en ese lugar 
                 System.out.println("Ya has disparado aquí antes");
             }else if (table[x][y].equals("0")) {
             System.out.println("Has impactado un barco");
-            table_d[x][y] = "X"; // Marcar como impacto en un barco con "*"
-             //Jugador TableAct = new Jugador();//creando nuevo objeto para mostrar el tablero actualizado
-            // TableAct.NoMostrarPosicion(TableAct.tableroDisp);
+            table_d[x][y] = "X"; // Marcar como impacto en un barco con "X"
+            
             }
            
         } else {
             System.out.println("Coordenadas inválidas");
         }
     }
+
+    //metodo para verificar que los barcos se han hundido
+    public boolean todosBarcosHundidos(String[][] table) {
+    for (int i = 0; i < table.length; i++) {
+        for (int j = 0; j < table[0].length; j++) {
+            if (table[i][j].equals("0")) {
+                return false; // si se hundido uno, retornara false
+            }
+        }
+    }
+    return true; // no hay barcos hundidos, retorna verdadero
+}
    
 }
