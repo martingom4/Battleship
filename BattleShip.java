@@ -18,7 +18,7 @@ public class BattleShip {
         player.Tablero(player.table4);// se llama al metodo de tablero para disparo del jugador 2
         player.Nombres();
         
-        //Barco jugador 1;
+        //Barco jugador 1
         System.out.println("Jugador 1: "+player.player1);
         Limpiar.clean();
         for(int i=0;i<4;i++){
@@ -57,14 +57,14 @@ public class BattleShip {
             }opc_barco=0; //Fin del switch
         }//fin del for 
         boat.barcos(boat.size1,c.coordenadas1,boat.direccion1); 
-
+        
         //barco jugador 2
         System.out.println("Jugador 2: "+player.player2);
         for(int i=0;i<4;i++){
 
                 System.out.println("Colocar barco "+(i+1)+": \n1-Horizontal(hacia a la derecha)\n2-Vertical(hacia abajo)");
                 opc_barco=Integer.parseInt(libro.readLine());
-                player.Tablero(player.table2);
+                
                 Limpiar.clean();
                 barco=false;
             switch(opc_barco){
@@ -72,7 +72,7 @@ public class BattleShip {
                         boat.size2=boat.TamañoBarco(boat.ilustracion2,boat.size2,i,boat.nbarco2,boat.barco2);//metodo encontrar el tamaño del barco
                         Limpiar.clean();
                         while(!barco){
-                            player.Tablero(player.table2);
+                            player.MostrarTablero(player.table2);
                             c.coor(c.coordenadas2,i);//Llamado al metodo de pedir coordenadas
                             barco=player.BarcoH(player.table2,boat.size2,c.x,c.y,i,boat.direccion2);//llamado al metodo para guardar barco en horizontal
                             player.MostrarTablero(player.table2);//llamado al metodo para mostrar tablero
@@ -82,7 +82,7 @@ public class BattleShip {
                         boat.size2=boat.TamañoBarco(boat.ilustracion2,boat.size2,i,boat.nbarco2,boat.barco2);//metodo encontrar el tamaño del barco
                         Limpiar.clean();
                         while(!barco){
-                            player.Tablero(player.table2);
+                            player.MostrarTablero(player.table2);
                             c.coor(c.coordenadas2,i);//Llamado al metodo de pedir coordenadas
                             barco=player.BarcoV(player.table2,boat.size2,c.x,c.y,i,boat.direccion2);//llamado al metodo para guardar barco en horizontal
                             player.MostrarTablero(player.table2);//llamado al metodo para mostrar tablero
