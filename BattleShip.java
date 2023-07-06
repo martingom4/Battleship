@@ -110,10 +110,10 @@ public class BattleShip {
                 case 1:
                     System.out.println("Es el turno del jugador 1");
                     System.out.println("Ingrese las coordenadas en las que quiere disparar");
-                    System.out.println("tablero de barcos");
-                    player.MostrarTablero(player.table1);
                     System.out.println("tablero de disparos");
                     player.MostrarTablero(player.table3);
+                    System.out.println("tablero de barcos");
+                    player.MostrarTablero(player.table1);
                     c.coor(c.coordenadas3, i);
                     c.Disparar(player.table2,player.table3, c.coordenadas3,i);
                     System.out.println("tablero de disparos");
@@ -123,10 +123,10 @@ public class BattleShip {
                 case 2:
                     System.out.println("Es el turno del jugador 2 ");
                     System.out.println("Ingrese las coordenadas en las que quiere disparar");
-                    System.out.println("tablero de barcos");
-                    player.MostrarTablero(player.table2);
                     System.out.println("tablero de disparos");
                     player.MostrarTablero(player.table4);
+                    System.out.println("tablero de barcos");
+                    player.MostrarTablero(player.table2);
                     c.coor(c.coordenadas4,i);
                     c.Disparar(player.table1,player.table4, c.coordenadas4,i);
                     System.out.println("tablero de disparos");
