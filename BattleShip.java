@@ -98,7 +98,7 @@ public class BattleShip {
         do {
         System.out.println("ingrese que jugador quiere que vaya primero el jugador 1 o el jugador 2 ");
         turnos= Integer.parseInt(libro.readLine());
-        
+                i=0;
             
                 switch (turnos) {
                 case 1:
