@@ -8,6 +8,7 @@ public class Jugador {
     String[][] table2=new String[9][9];//tablero para jugador 2
     String[][] table3=new String[9][9];// tablero para hacer los disparos del jugador 1 
     String[][] table4=new String[9][9];// tablero para hacer los disparos del jugador 2 
+   
 
 
 
@@ -41,7 +42,7 @@ public class Jugador {
         }
         return table;
     }
-
+    
     //METODO PARA BARCO HORIZONTAL
     public Boolean BarcoH(String table[][],int[] tam_barco,int i, int j,int n,String[]sentido){
         Boolean barco=true;
@@ -97,7 +98,7 @@ public class Jugador {
         }
         return barco;
     }
+   
 
    
 }
-

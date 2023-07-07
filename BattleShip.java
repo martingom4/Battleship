@@ -1,4 +1,10 @@
-//
+/*
+ * Integrantes:
+ * - David Zhang
+ * - Nicole Bustamante
+ * - Anilys Rodriguez
+ * - Martin Gomez
+ */
 import java.io.*;
 public class BattleShip {
     public static void main(String[] args) throws IOException {
@@ -8,8 +14,7 @@ public class BattleShip {
         Coordenadas c = new Coordenadas();
         Barco boat = new Barco();
         Boolean barco=false;
-        Boolean fin=false;
-        int turnos;
+       
         int opc_barco=0;
         int i=0;
         
@@ -23,7 +28,13 @@ public class BattleShip {
         System.out.println("Jugador 1: "+player.player1);
         Limpiar.clean();
         for(i=0;i<4;i++){
-            
+                 System.out.println("Bienvenido al juego Battleship");
+                System.out.println("----------------------------------");
+                System.out.println();
+
+                // Limpiar pantalla
+                Limpiar.clean();
+
                 System.out.println("Colocar barco "+(i+1)+": \n1-Horizontal(hacia a la derecha)\n2-Vertical(hacia abajo)");
                 opc_barco=Integer.parseInt(libro.readLine());
                 Limpiar.clean();
@@ -42,7 +53,7 @@ public class BattleShip {
                         }
                     break;
                 case 2:                     
-                        boat.size1=boat.TamañoBarco(boat.ilustracion1,boat.size1,i,boat.nbarco1,boat.barco1);  
+                    boat.size1=boat.TamañoBarco(boat.ilustracion1,boat.size1,i,boat.nbarco1,boat.barco1);  
                         Limpiar.clean();                      
                         while(!barco){
                             player.MostrarTablero(player.table1);                           
@@ -57,7 +68,7 @@ public class BattleShip {
                     break;
             }opc_barco=0; //Fin del switch
         }//fin del for 
-        boat.barcos(boat.size1,c.coordenadas1,boat.direccion1); 
+         
 
        //barco jugador 2
         System.out.println("Jugador 2: "+player.player2);
@@ -93,37 +104,77 @@ public class BattleShip {
                     break;
             }opc_barco=0; //Fin del switch
         }//fin del for 
-        boat.barcos(boat.size2,c.coordenadas2,boat.direccion2); 
+
+    
+        Limpiar.clean();
+        int turno = 1; // Empieza el juego con el turno del jugador 1
+        Boolean FindelJuego=false;
 
         do {
-        System.out.println("ingrese que jugador quiere que vaya primero el jugador 1 o el jugador 2 ");
-        turnos= Integer.parseInt(libro.readLine());
-                i=0;
-            
-                switch (turnos) {
-                case 1:
-                    System.out.println("Es el turno del jugador 1");
-                    System.out.println("Ingrese las coordenadas en las que quiere disparar");
-                    player.MostrarTablero(player.table3);
-                    c.coor(c.coordenadas1, i);
-                    c.Disparar(player.table2, c.coordenadas1,i);
-
-                    break;
-                case 2:
-                    System.out.println("Es el turno del jugador 2 ");
-                    System.out.println("Ingrese las coordenadas en las que quiere disparar");
-                    player.MostrarTablero(player.table3);
-                    c.coor(c.coordenadas2,i);
-                    c.Disparar(player.table1, c.coordenadas2,i);
-                    
-                default:
-
-                    break;
+            String pJugador = "";
+            if (turno == 1) {
+                pJugador = player.player1;
+            } else {
+                pJugador = player.player2;
             }
-    
-    
-        }while(fin);
+
+            System.out.println("Es turno del jugador: " + pJugador + ". Prepárate");
+
+            i = 0;
+
+            System.out.println("¿Deseas rendirte? (Sí/No)");
+            Limpiar.clean();
+            String opcionRendirse = libro.readLine();
+
+            if (opcionRendirse.equalsIgnoreCase("Sí")) {
+                FindelJuego = true;
+            } else {
+                System.out.println("Ingrese las coordenadas en las que quieres disparar");
+                System.out.println("Tablero de disparos");
+                
+                if (turno == 1) {
+                    player.MostrarTablero(player.table3);
+                    player.MostrarTablero(player.table1);
+                    c.coor(c.coordenadas3, i);
+                    c.Disparar(player.table2, player.table3, c.coordenadas3, i);
+                    System.out.println("Tablero de disparos");
+                    player.MostrarTablero(player.table3);
+
+                    //c.hundirbarco(player.table2, 1, player, boat);        
+                } else {
+                    player.MostrarTablero(player.table4);
+                    player.MostrarTablero(player.table2);
+                    c.coor(c.coordenadas4, i);
+                    c.Disparar(player.table1, player.table4, c.coordenadas4, i);
+                    System.out.println("Tablero de disparos");
+                    player.MostrarTablero(player.table4);
+                }
+                
+                if (turno == 1) {
+                    turno = 2; // turno al jugador 2
+                } else {
+                    turno = 1; // turno al jugador 1
+                }
+
+                //que barco se hundio 
+                 Limpiar.clean();
+                if (c.todosBarcosHundidos(player.table1)) {
+                    System.out.println("Todos los barcos del jugador 1 se han hundido");
+                    System.out.println("Tamaño del último barco hundido: " + boat.size1);
+                }
+                if (c.todosBarcosHundidos(player.table2)) {
+                    System.out.println("Todos los barcos del jugador 2 se han hundido");
+                    System.out.println("Tamaño del último barco hundido: " + boat.size2);
+                }
+            }
+        } while (!FindelJuego);
 
 
+        boat.barcos(boat.size1,c.coordenadas1,boat.direccion1);
+        boat.barcos(boat.size2,c.coordenadas2,boat.direccion2); 
+
+         
     }// fin del static 
+
+    
 }// fin de la clase 
