@@ -84,6 +84,7 @@ public class Coordenadas {
     }
     public String[] coor(String[]coordenada,int i) throws IOException{
         System.out.println("Inserte coordenadas");
+
         coordenada[i]=libro.readLine();
         x=coordenadasx(coordenada,i);
         y=coordenadasy(coordenada,i);
@@ -113,6 +114,10 @@ public class Coordenadas {
     }
 
     //metodo para verificar que los barcos se han hundido
+    /**
+     * @param table
+     * @return
+     */
     public boolean todosBarcosHundidos(String[][] table) {
     for (int i = 0; i < table.length; i++) {
         for (int j = 0; j < table[0].length; j++) {
