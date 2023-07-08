@@ -186,10 +186,15 @@ public class BattleShip {
                 pJugador = player.player2;
             }
             i = 0; 
-                Limpiar.clean();     
+                Limpiar.clean();  
+                try {
+                    
+                
                 if (turno == 1) { //turno del jugador 1
+                    
                     System.out.println("Es turno del jugador: " + pJugador + ". Prepárate");
                     libro.readLine();
+                    Limpiar.clean();
                     System.out.println("Tablero de disparos");
                     board.MostrarTablero(player.table3);
                     System.out.println("Estos son tus barcos");
@@ -216,14 +221,16 @@ public class BattleShip {
                             boat.ListaBarcos(boat.size1, c.coordenadas1, boat.direccion1);
                             break;
                         }
-                        // Limpiar.clean();
+                      
                         
                     } 
-                Limpiar.clean();    
+                    libro.readLine();
                        
-                }else { //turno del jugador 2
+                }// Fin del if 
+                else { //turno del jugador 2
                     System.out.println("Es turno del jugador: " + pJugador + ". Prepárate");
                     libro.readLine();
+                    Limpiar.clean();
                     System.out.println("Tablero de disparos");
                     board.MostrarTablero(player.table4);
                     System.out.println("Estos son tus barcos");
@@ -254,9 +261,13 @@ public class BattleShip {
                         }
                         // Limpiar.clean();
                     } 
-                    
-
-                }
+                    libro.readLine();
+                }// fin del else
+                 } catch (Exception e) {
+                    System.out.println("ingrese una coordenada valida");
+                }  
+                
+                
                 
                 if (turno == 1) {
                     turno = 2; // turno al jugador 2
@@ -277,7 +288,7 @@ public class BattleShip {
                     System.out.println("Todos los barcos del jugador 2 se han hundido");
                     System.out.println("GANADOR -> Jugador 1: " + pJugador);
                     boat.ListaBarcos(boat.size2, c.coordenadas2, boat.direccion2);
-                    System.out.println("Los barcos de" +player.player2 + " eran");
+                    System.out.println("Los barcos de " +player.player2 + " eran");
                     boat.ListaBarcos(boat.size2, c.coordenadas2, boat.direccion2);
                     FindelJuego = true;
                 }
