@@ -8,7 +8,7 @@ public class Barco {
     int barco2[]={2,3,4};
     String[] ilustracion1={"00","000","0000"};
     String[] ilustracion2={"00","000","0000"};
-    String[] direccion1=new String[4];//arrglo que guarda la direccion Horizontal o vertical del jugador 1
+    String[] direccion1=new String[4];//arreglo que guarda la direccion Horizontal o vertical del jugador 1
     String[] direccion2=new String[4];
     int[] size1=new int[4]; // arreglo que guarda los tamños de los barcos del jugador 1
     int[] size2=new int[4];
@@ -38,12 +38,13 @@ public int[] TamañoBarco(String[] ilus,int[]tam,int i,int[]nbarco,int[]barco)th
         return tam;
     }
     
-    public void barcos(int[]t,String[] coord,String[]sentido){
-        for(int i=0;i<4;i++){
-            
-            System.out.println( "TamañBarco: "+t[i]);
-            System.out.println("sus coordenadas:"+coord[i]);
-            System.out.println("su sentido es:"+sentido[i]);
-        }
+    public void barcos(int[] tam, String[] ilus, String[] sentido) {
+    for (int i = 0; i < 3; i++) {
+        System.out.println("Tamaño del Barco " + (i+2) + ": " + tam[i]);
+        System.out.println("Posiciones: " + ilus[i]);
+        System.out.println("Sentido: " + sentido[i]);
+        System.out.println();
     }
+}
+
 }
