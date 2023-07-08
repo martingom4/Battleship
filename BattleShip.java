@@ -143,29 +143,48 @@ public class BattleShip {
 
             System.out.println("¿Deseas rendirte? (Sí/No)");
             String opcionRendirse = libro.readLine();
-
-            if (opcionRendirse.equalsIgnoreCase("Sí")) {
-                FindelJuego = true;
-            } else {
+                if (opcionRendirse.equalsIgnoreCase("Si")) {
+                    System.out.println("El jugador " + pJugador + " se ha rendido");
+                    FindelJuego = true;
+                    // Mostrar detalles de los barcos del jugador contrario
+                    if (turno == 1) {
+                        System.out.println("El ganador es \n"+ player.player2);
+                        boat.barco(boat.size2, c.coordenadas2, boat.direccion2);
+                        System.out.println("Y los barcos de "+ player.player1 + "son");
+                        boat.barco(boat.size1, c.coordenadas1, boat.direccion1);
+                    } else {
+                        System.out.println("El ganador es \n"+ player.player1);
+                        boat.barco(boat.size1, c.coordenadas1, boat.direccion1);
+                        System.out.println("Y los barcos de "+ player.player2 + "son");
+                        boat.barco(boat.size2, c.coordenadas2, boat.direccion2);
+                    }
+                }
+                else {
                 System.out.println("Ingrese las coordenadas en las que quieres disparar");
-                System.out.println("Tablero de disparos");
+               
                 
                 if (turno == 1) {
+                    Limpiar.clean();
+                    System.out.println("Tablero de disparos");
                     player.MostrarTablero(player.table3);
+                    System.out.println("Estos son tus barcos");
                     player.MostrarTablero(player.table1);
                     c.coor(c.coordenadas3, i);
                     c.Disparar(player.table2, player.table3, c.coordenadas3, i);
                     System.out.println("Tablero de disparos");
-                    player.MostrarTablero(player.table3);
-
-                    //c.hundirbarco(player.table2, 1, player, boat);        
-                } else {
+                    player.MostrarTablero(player.table3);     
+                       
+                }else {
+                    Limpiar.clean();
+                    System.out.println("Tablero de disparos");
                     player.MostrarTablero(player.table4);
+                    System.out.println("Estos son tus barcos");
                     player.MostrarTablero(player.table2);
                     c.coor(c.coordenadas4, i);
                     c.Disparar(player.table1, player.table4, c.coordenadas4, i);
                     System.out.println("Tablero de disparos");
                     player.MostrarTablero(player.table4);
+
                 }
                 
                 if (turno == 1) {
@@ -177,18 +196,21 @@ public class BattleShip {
                 //que barco se hundio 
                 if (c.todosBarcosHundidos(player.table1)) {
                     System.out.println("Todos los barcos del jugador 1 se han hundido");
-                    System.out.println("Tamaño del último barco hundido: " + boat.size1);
+                    System.out.println("GANADOR -> Jugador 2: " + pJugador);
+                    boat.barco(boat.size1, c.coordenadas1, boat.direccion1);
                 }
                 if (c.todosBarcosHundidos(player.table2)) {
                     System.out.println("Todos los barcos del jugador 2 se han hundido");
-                    System.out.println("Tamaño del último barco hundido: " + boat.size2);
+                    System.out.println("GANADOR -> Jugador 1: " + pJugador);
+                    boat.barco(boat.size2, c.coordenadas2, boat.direccion2);
                 }
+
             }
         } while (!FindelJuego);
 
 
-        boat.barcos(boat.size1,c.coordenadas1,boat.direccion1);
-        boat.barcos(boat.size2,c.coordenadas2,boat.direccion2); 
+        //boat.barcos(boat.size1,c.coordenadas1,boat.direccion1);
+        //boat.barcos(boat.size2,c.coordenadas2,boat.direccion2); 
 
          
     }// fin del static 
