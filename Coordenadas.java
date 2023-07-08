@@ -60,19 +60,10 @@ public class Coordenadas {
         }
         return x;
     }
-     public String[] guardarcoords(String[]coordenada,int i) throws IOException{
-        boolean valido = false;
-        while(!valido){
-            System.out.println("Inserte coordenadas");
-            coordenada[i]=libro.readLine();
-            x=coordenadasx(coordenada,i);
-            y=coordenadasy(coordenada,i);
-            if(x==-1 || y==-1){
-                System.out.println("Valores invalidos.");
-            }else{
-                valido=true;
-            }
-        }
+     public String[] guardarcoords(String dato, String[]coordenada,int i) throws IOException{
+        coordenada[i]=dato;
+        x=coordenadasx(coordenada,i);
+        y=coordenadasy(coordenada,i);
         return coordenada;
     }
 

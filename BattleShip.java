@@ -14,10 +14,11 @@ public class BattleShip {
         Coordenadas c = new Coordenadas();
         Barco boat = new Barco();
         Boolean barco=false;
-       
+        String dato ="";
         int opc_barco=0;
         int i=0;
         boolean valido;
+        boolean valido2;
         
         player.Tablero(player.table1);//llamado al metodo para crear tablero del jugador 1
         player.Tablero(player.table2);//llamado al metodo para crear tablero del jugador 2
@@ -48,8 +49,20 @@ public class BattleShip {
                             boat.size1=boat.TamañoBarco(boat.ilustracion1,boat.size1,i,boat.nbarco1,boat.barco1);//metodo encontrar el tamaño del barco
                             Limpiar.clean();
                             while(!barco){ 
-                                player.MostrarTablero(player.table1);        
-                                c.guardarcoords(c.coordenadas1,i);//Llamado al metodo de pedir coordenadas
+                                player.MostrarTablero(player.table1);
+                                valido2=false;
+                                while(!valido2){
+                                    System.out.println("Ingrese coordenadas:");
+                                    dato = libro.readLine();
+                                    c.guardarcoords(dato, c.coordenadas1,i);//Llamado al metodo de pedir coordenadas
+                                    if(c.x==-1 || c.y==-1){
+                                        System.out.println("Valores invalidos.");
+                                    }else{
+                                        System.out.println("x:"+c.x);
+                                        System.out.println("y:"+c.y);
+                                        valido2=true;
+                                    }
+                                }      
                                 barco=player.BarcoH(player.table1,boat.size1,c.x,c.y,i,boat.direccion1);//llamado al metodo para guardar barco en horizontal
                                 player.MostrarTablero(player.table1);//llamado al metodo para mostrar tablero
                                 
@@ -60,7 +73,19 @@ public class BattleShip {
                             Limpiar.clean();                      
                             while(!barco){
                                 player.MostrarTablero(player.table1);                           
-                                c.guardarcoords(c.coordenadas1,i);//Llamado la metodo de pedir coordenadas
+                                valido2=false;
+                                while(!valido2){
+                                    System.out.println("Ingrese coordenadas:");
+                                    dato = libro.readLine();
+                                    c.guardarcoords(dato, c.coordenadas1,i);//Llamado al metodo de pedir coordenadas
+                                    if(c.x==-1 || c.y==-1){
+                                        System.out.println("Valores invalidos.");
+                                    }else{
+                                        System.out.println("x:"+c.x);
+                                        System.out.println("y:"+c.y);
+                                        valido2=true;
+                                    }
+                                } 
                                 barco=player.BarcoV(player.table1,boat.size1,c.x,c.y,i,boat.direccion1);//llamado al metodo para guardar barco en vertical 
                                 player.MostrarTablero(player.table1);//llamado al metodo para mostrar tablero
                             }
@@ -77,7 +102,7 @@ public class BattleShip {
             }
         }//fin del for 
 
-
+    
         // Limpiar pantalla
         Limpiar.clean();
 
@@ -96,8 +121,20 @@ public class BattleShip {
                                 boat.size2=boat.TamañoBarco(boat.ilustracion2,boat.size2,i,boat.nbarco2,boat.barco2);//metodo encontrar el tamaño del barco
                                 Limpiar.clean();
                                 while(!barco){
-                                    player.MostrarTablero(player.table2); 
-                                    c.guardarcoords(c.coordenadas2,i);//Llamado al metodo de pedir coordenadas
+                                    player.MostrarTablero(player.table2);
+                                    valido2=false; 
+                                    while(!valido2){
+                                        System.out.println("Ingrese coordenadas:");
+                                        dato = libro.readLine();
+                                        c.guardarcoords(dato, c.coordenadas2,i);//Llamado al metodo de pedir coordenadas
+                                        if(c.x==-1 || c.y==-1){
+                                            System.out.println("Valores invalidos.");
+                                        }else{
+                                            System.out.println("x:"+c.x);
+                                            System.out.println("y:"+c.y);
+                                            valido2=true;
+                                        }
+                                    } 
                                     barco=player.BarcoH(player.table2,boat.size2,c.x,c.y,i,boat.direccion2);//llamado al metodo para guardar barco en horizontal
                                     player.MostrarTablero(player.table2);//llamado al metodo para mostrar tablero
                                 }
@@ -107,7 +144,19 @@ public class BattleShip {
                                 Limpiar.clean();
                                 while(!barco){
                                     player.MostrarTablero(player.table2); 
-                                    c.guardarcoords(c.coordenadas2,i);//Llamado al metodo de pedir coordenadas
+                                    valido2=false;
+                                    while(!valido2){
+                                        System.out.println("Ingrese coordenadas:");
+                                        dato = libro.readLine();
+                                        c.guardarcoords(dato, c.coordenadas2,i);//Llamado al metodo de pedir coordenadas
+                                        if(c.x==-1 || c.y==-1){
+                                            System.out.println("Valores invalidos.");
+                                        }else{
+                                            System.out.println("x:"+c.x);
+                                            System.out.println("y:"+c.y);
+                                            valido2=true;
+                                        }
+                                    } 
                                     barco=player.BarcoV(player.table2,boat.size2,c.x,c.y,i,boat.direccion2);//llamado al metodo para guardar barco en horizontal
                                     player.MostrarTablero(player.table2);//llamado al metodo para mostrar tablero
                                 }
@@ -124,7 +173,7 @@ public class BattleShip {
             }
         }//fin del for 
 
-    
+    /* 
         Limpiar.clean();
         int turno = 1; // Empieza el juego con el turno del jugador 1
         Boolean FindelJuego=false;
@@ -211,8 +260,7 @@ public class BattleShip {
 
         //boat.barcos(boat.size1,c.coordenadas1,boat.direccion1);
         //boat.barcos(boat.size2,c.coordenadas2,boat.direccion2); 
-
-         
+        */
     }// fin del static 
 
     
