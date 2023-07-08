@@ -143,10 +143,23 @@ public class BattleShip {
 
             System.out.println("¿Deseas rendirte? (Sí/No)");
             String opcionRendirse = libro.readLine();
-
-            if (opcionRendirse.equalsIgnoreCase("Sí")) {
-                FindelJuego = true;
-            } else {
+                if (opcionRendirse.equalsIgnoreCase("Si")) {
+                    System.out.println("El jugador " + pJugador + " se ha rendido");
+                    FindelJuego = true;
+                    // Mostrar detalles de los barcos del jugador contrario
+                    if (turno == 1) {
+                        System.out.println("El ganador es \n"+ player.player2);
+                        boat.barco(boat.size2, c.coordenadas2, boat.direccion2);
+                        System.out.println("Y los barcos de "+ player.player1 + "son");
+                        boat.barco(boat.size1, c.coordenadas1, boat.direccion1);
+                    } else {
+                        System.out.println("El ganador es \n"+ player.player1);
+                        boat.barco(boat.size1, c.coordenadas1, boat.direccion1);
+                        System.out.println("Y los barcos de "+ player.player2 + "son");
+                        boat.barco(boat.size2, c.coordenadas2, boat.direccion2);
+                    }
+                }
+                else {
                 System.out.println("Ingrese las coordenadas en las que quieres disparar");
                 System.out.println("Tablero de disparos");
                 
