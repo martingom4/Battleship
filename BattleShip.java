@@ -269,11 +269,15 @@ public class BattleShip {
                     System.out.println("Todos los barcos del jugador 1 se han hundido");
                     System.out.println("GANADOR -> Jugador 2: " + pJugador);
                     boat.ListaBarcos(boat.size1, c.coordenadas1, boat.direccion1);
+                    System.out.println("Los barcos de" +player.player1 + " eran");
+                    boat.ListaBarcos(boat.size1, c.coordenadas1, boat.direccion1);
                     FindelJuego = true;
                 }
                 if (c.todosBarcosHundidos(player.table2)) {
                     System.out.println("Todos los barcos del jugador 2 se han hundido");
                     System.out.println("GANADOR -> Jugador 1: " + pJugador);
+                    boat.ListaBarcos(boat.size2, c.coordenadas2, boat.direccion2);
+                    System.out.println("Los barcos de" +player.player2 + " eran");
                     boat.ListaBarcos(boat.size2, c.coordenadas2, boat.direccion2);
                     FindelJuego = true;
                 }
