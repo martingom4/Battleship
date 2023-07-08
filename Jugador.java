@@ -27,8 +27,9 @@ public class Jugador {
             }else if (table[x][y].equals("0")) {
                 System.out.println("Has impactado un barco");
                 table_d[x][y] = "X"; // Marcar como impacto en un barco con "X"
-                table[x][y] = "$"; //se cambiara por el 0
+                table[x][y] = "\u25A0"; //se cambiara por el 0
                 valido=true;
+                
             }
            
         } else {
