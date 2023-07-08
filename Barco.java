@@ -38,7 +38,7 @@ public int[] TamañoBarco(String[] ilus,int[]tam,int i,int[]nbarco,int[]barco)th
         }
         return tam;
     }
-    public void barco(int[] tamaños, String[] coordenadas, String[] direcciones) {
+    public void ListaBarcos(int[] tamaños, String[] coordenadas, String[] direcciones) {
         for (int i = 0; i < 4; i++) {
             System.out.println("Barco " + (i + 1) + ":");
             System.out.println("Tamaño: " + tamaños[i]);
