@@ -142,7 +142,6 @@ public class BattleShip {
             i = 0;
 
             System.out.println("¿Deseas rendirte? (Sí/No)");
-            Limpiar.clean();
             String opcionRendirse = libro.readLine();
 
             if (opcionRendirse.equalsIgnoreCase("Sí")) {
@@ -176,7 +175,6 @@ public class BattleShip {
                 }
 
                 //que barco se hundio 
-                 Limpiar.clean();
                 if (c.todosBarcosHundidos(player.table1)) {
                     System.out.println("Todos los barcos del jugador 1 se han hundido");
                     System.out.println("Tamaño del último barco hundido: " + boat.size1);
