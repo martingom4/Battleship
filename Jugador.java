@@ -1,37 +1,33 @@
 import java.io.*;
 public class Jugador {
-    static BufferedReader libro=new BufferedReader(new InputStreamReader(System.in));
-    //Barco boat=new Barco();
-    String Nombre;
-    String table[][] = new String[9][9];
-    String shot[][] = new String[9][9];
-
-    //Metodo constructor
-    public Jugador(int i) throws IOException{
-        this.Nombre=Jugador.Nombres(i);
-        this.table=CrearTablero();
-        this.shot=CrearTablero();
-    }
-
-    //METODO PARA INGRESAR NOMBRES DE JUGADORES
-    public static String Nombres(int i) throws IOException{
-        System.out.println("Ingrese Nombre del Jugador "+i);
-        String Name = libro.readLine();
-        return Name;
+    BufferedReader libro=new BufferedReader(new InputStreamReader(System.in));
+    Barco boat=new Barco();
+    String player1, player2;
+    String dato;
+    String[][] table1=new String[9][9];//tablero para jugador 1
+    String[][] table2=new String[9][9];//tablero para jugador 2
+    String[][] table3=new String[9][9];// tablero para hacer los disparos del jugador 1 
+    String[][] table4=new String[9][9];// tablero para hacer los disparos del jugador 2 
+   
+    //INGRESAR NOMBRES DE JUGADORES
+    public void Nombres() throws IOException{
+        System.out.println("Ingrese jugador 1:");
+        player1 = libro.readLine();
+        System.out.println("Ingrese jugador 2:");
+        player2 = libro.readLine();
+        
     }
     //METODO CREAR TABLERO
-    public String[][] CrearTablero(){
-        String table[][] = new String[9][9];
+    public void Tablero(String table[][]){
         for(int i=0;i<table.length;i++){
             for(int j=0;j<table.length;j++){
                 table[i][j]="-";
             }
         }
-        return table;
     }
 
     // METODO PARA IMPRIMIR EL TABLERO (poner en archivo tablero)
-    public  void MostrarTablero(String table[][]){
+    public String[][] MostrarTablero(String table[][]){
         char letras []= {'A','B','C','D','E','F','G','H','I'};
         System.out.print("      1     2     3     4     5     6     7     8     9 \n");
         for(int i=0;i<table.length;i++){
@@ -41,26 +37,9 @@ public class Jugador {
             }
             System.out.println();
         }
+        return table;
     }
-    //metodo para tablero de disparos sin mostrar posicion
-    public String[][] NoMostrarPosicion(String tableroDisp[][], String[][] disparos){
-        char letras []= {'A','B','C','D','E','F','G','H','I'};
-        System.out.print("      1     2     3     4     5     6     7     8     9 \n");
-        System.out.println("El tablero se ha actualizado ");
-        for(int i=0;i<tableroDisp.length;i++){
-            System.out.printf("\n %s",letras[i]);
-            for(int j=0;j<tableroDisp.length;j++){
-                //System.out.printf("%5s ",tableroDisp[i][j]+" ");
-                if (disparos[i][j].equals("-")) {
-                System.out.printf("%5s ",tableroDisp[i][j]+" ");
-                }else{
-                    System.out.println("~");
-                }
-            }
-            System.out.println();
-        }
-        return disparos;
-    }
+    
     //METODO PARA BARCO HORIZONTAL
     public Boolean BarcoH(String table[][],int[] tam_barco,int i, int j,int n,String[]sentido){
         Boolean barco=true;
@@ -116,6 +95,7 @@ public class Jugador {
         }
         return barco;
     }
+   
 
    
 }
