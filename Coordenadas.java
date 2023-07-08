@@ -66,6 +66,8 @@ public class Coordenadas {
         y=coordenadasy(coordenada,i);
         return coordenada;
     }
+    //metodo para disparar 
+   
 
     //metodo para verificar que los barcos se han hundido
    
