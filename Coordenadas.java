@@ -35,59 +35,44 @@ public class Coordenadas {
         String letra;
         int x;
         letra=coordenada[i].substring(0, 1).toUpperCase();
-        switch(letra){
-            case "A":
-                x=0;
-            break;
-            
-            case "B":
-                x=1;
-            break;
-            
-            case "C":
-                x=2;
-            break;
-            
-            case "D":
-                x=3;
-            break;
-            
-            case "E":
-                x=4;
-            break;
-            
-            case "F":
-                x=5;
-            break;
-            
-            case "G":
-                x=6;
-            break;
-            
-            case "H":
-                x=7;
-            break;
-            
-            case "I":
-                x=8;
-            break;
-            
-            case "J":
-                x=9;
-            break;
-            
-            default:
-                x=-1;
-            break;
+        if(letra.equals("A") || letra.equals("a")){
+            x=0;
+        }else if(letra.equals("B") || letra.equals("b")){
+            x=1;
+        }else if(letra.equals("C") || letra.equals("c")){
+            x=2;
+        }else if(letra.equals("D") || letra.equals("d")){
+            x=3;
+        }else if(letra.equals("E") || letra.equals("e")){
+            x=4;
+        }else if(letra.equals("F") || letra.equals("f")){
+            x=5;
+        }else if(letra.equals("G") || letra.equals("g")){
+            x=6;
+        }else if(letra.equals("H") || letra.equals("h")){
+            x=7;
+        }else if(letra.equals("I") || letra.equals("i")){
+            x=8;
+        }else if(letra.equals("J") || letra.equals("j")){
+            x=9;
+        }else{
+            x=-1;
         }
         return x;
     }
     public String[] coor(String[]coordenada,int i) throws IOException{
-        System.out.println("Inserte coordenadas");
-
-        coordenada[i]=libro.readLine();
-        x=coordenadasx(coordenada,i);
-        y=coordenadasy(coordenada,i);
+        boolean valido = false;
+        while(!valido){
+            System.out.println("Inserte coordenadas");
+            coordenada[i]=libro.readLine();
+            x=coordenadasx(coordenada,i);
+            y=coordenadasy(coordenada,i);
+            if(x==-1 || y==-1){
+                System.out.println("Valores invalidos.");
+            }else{
+                valido=true;
+            }
+        }
         return coordenada;
     }
 
@@ -105,7 +90,7 @@ public class Coordenadas {
             }else if (table[x][y].equals("0")) {
             System.out.println("Has impactado un barco");
             table_d[x][y] = "X"; // Marcar como impacto en un barco con "X"
-            
+            table[x][y] = "$"; //se cambiara por el 0
             }
            
         } else {
@@ -114,10 +99,7 @@ public class Coordenadas {
     }
 
     //metodo para verificar que los barcos se han hundido
-    /**
-     * @param table
-     * @return
-     */
+   
     public boolean todosBarcosHundidos(String[][] table) {
     for (int i = 0; i < table.length; i++) {
         for (int j = 0; j < table[0].length; j++) {
