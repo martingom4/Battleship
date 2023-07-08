@@ -35,16 +35,25 @@ public class BattleShip {
         Limpiar.clean();
 
         //Barco jugador 1;
-        System.out.println("Jugador 1: "+player.player1);
+        System.out.println("Es el turno de poner los barcos al Jugador 1: "+player.player1);
+        libro.readLine();
         for(i=0;i<4;i++){
             valido=false;
             while(!valido){
                 try{
-                    System.out.println("Colocar barco "+(i+1)+": \n1-Horizontal(hacia a la derecha)\n2-Vertical(hacia abajo)");
+                    System.out.println("Colocar barco "+(i+1)+": \n1-Horizontal(hacia a la derecha)\n2-Vertical(hacia abajo) \n0.Desea no continuar con el juego, "+player.player1+"?");
                     opc_barco=Integer.parseInt(libro.readLine());
                     Limpiar.clean();
                     barco=false;
                     switch(opc_barco){
+                        case 0:
+                                System.out.println("Desea salirse del juego Si/No");
+                                String repu=(libro.readLine());
+                                    if (repu.equalsIgnoreCase("Si")) {
+                                        System.exit(0); // Cerrar el programa
+                                        break;
+                                    }
+                                break;
                         case 1:    
                             boat.size1=boat.TamañoBarco(boat.ilustracion1,boat.size1,i,boat.nbarco1,boat.barco1);//metodo encontrar el tamaño del barco
                             Limpiar.clean();
@@ -97,31 +106,32 @@ public class BattleShip {
                 }
             }
         }//fin del for 
+    
 
     
         // Limpiar pantalla
         Limpiar.clean();
 
             //barco jugador 2
-            System.out.println("Jugador 2: "+player.player2);
+            System.out.println("Es el turno de poner los barcos al Jugador 2: "+player.player1);
+            libro.readLine();
             for(i=0;i<4;i++){
                 valido=false;
                 while(!valido){
                     try{
-                        System.out.println("Colocar barco "+(i+1)+": \n1-Horizontal(hacia a la derecha)\n2-Vertical(hacia abajo)\n0.Desea no continuar con el juego,"+player.player2+"?");
+                        System.out.println("Colocar barco "+(i+1)+": \n1-Horizontal(hacia a la derecha)\n2-Vertical(hacia abajo)\n0.Desea no continuar con el juego, "+player.player2+"?");
                         opc_barco=Integer.parseInt(libro.readLine());
                         Limpiar.clean();
                         barco=false;
                         //si quiere salir jugador 2
-                        if (opc_barco==0) {
-                            System.out.println(player.player2+"¿Desea salirse del juego?(Si/No)");
-                            String respu= libro.readLine();
-                            if (respu.equalsIgnoreCase("Si")) {
-                                System.out.println(player.player1+"Ha salido del juego");
-                                return;
-                            }
-                        }else{
                             switch(opc_barco){
+                            case 0:
+                                System.out.println("Desea salirse del juego Si/No");
+                                String repu=(libro.readLine());
+                                    if (repu.equalsIgnoreCase("Si")) {
+                                        System.exit(0); // Cerrar el programa
+                                    }
+                                break;
                             case 1:
                             boat.size2=boat.TamañoBarco(boat.ilustracion2,boat.size2,i,boat.nbarco2,boat.barco2);//metodo encontrar el tamaño del barco
                             Limpiar.clean();
@@ -168,7 +178,7 @@ public class BattleShip {
                                 break;
                         }opc_barco=0; //Fin del switch
                         valido=true;
-                        }
+                        
                                                 
                     }catch(Exception e){
                         System.out.println("Ingrese dato valido");
@@ -190,9 +200,11 @@ public class BattleShip {
             } else {
                 pJugador = player.player2;
             }
-            i = 0;           
+            i = 0; 
+                Limpiar.clean();     
                 if (turno == 1) { //turno del jugador 1
                     System.out.println("Es turno del jugador: " + pJugador + ". Prepárate");
+                    libro.readLine();
                     System.out.println("Tablero de disparos");
                     player.MostrarTablero(player.table3);
                     System.out.println("Estos son tus barcos");
@@ -210,9 +222,7 @@ public class BattleShip {
                                 valido2=player.Disparar(player.table2, player.table3, c.coordenadas3, i);
                                 System.out.println("Tablero de disparos");
                                 player.MostrarTablero(player.table3); 
-                               
-                            }
-                            
+                            }    
                         }else{ //si el jugador 1 se rinde
                             FindelJuego=true;
                             System.out.println("El ganador es \n"+ player.player2);
@@ -221,13 +231,14 @@ public class BattleShip {
                             boat.barco(boat.size1, c.coordenadas1, boat.direccion1);
                             break;
                         }
-                         Limpiar.clean();
+                        // Limpiar.clean();
                         
                     } 
-                //Limpiar.clean();    
+                Limpiar.clean();    
                        
                 }else { //turno del jugador 2
                     System.out.println("Es turno del jugador: " + pJugador + ". Prepárate");
+                    libro.readLine();
                     System.out.println("Tablero de disparos");
                     player.MostrarTablero(player.table4);
                     System.out.println("Estos son tus barcos");
@@ -256,7 +267,7 @@ public class BattleShip {
                             boat.barco(boat.size2, c.coordenadas2, boat.direccion2);
                             break;
                         }
-                         Limpiar.clean();
+                        // Limpiar.clean();
                     } 
                     
 
