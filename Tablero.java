@@ -1,5 +1,3 @@
-import java.io.*;
-
 public class Tablero{
     //METODO CREAR TABLERO
     public void CrearTablero(String table[][]){
