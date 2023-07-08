@@ -41,19 +41,11 @@ public class BattleShip {
             valido=false;
             while(!valido){
                 try{
-                    System.out.println("Colocar barco "+(i+1)+": \n1-Horizontal(hacia a la derecha)\n2-Vertical(hacia abajo) \n0.Desea no continuar con el juego, "+player.player1+"?");
+                    System.out.println("Colocar barco "+(i+1)+": \n1-Horizontal(hacia a la derecha)\n2-Vertical(hacia abajo) \n");
                     opc_barco=Integer.parseInt(libro.readLine());
                     Limpiar.clean();
                     barco=false;
                     switch(opc_barco){
-                        case 0:
-                                System.out.println("Desea salirse del juego Si/No");
-                                String repu=(libro.readLine());
-                                    if (repu.equalsIgnoreCase("Si")) {
-                                        System.exit(0); // Cerrar el programa
-                                        break;
-                                    }
-                                break;
                         case 1:    
                             boat.size1=boat.TamañoBarco(boat.ilustracion1,boat.size1,i,boat.nbarco1,boat.barco1);//metodo encontrar el tamaño del barco
                             Limpiar.clean();
@@ -108,30 +100,22 @@ public class BattleShip {
         }//fin del for 
     
 
-    
+        libro.readLine();
         // Limpiar pantalla
         Limpiar.clean();
 
             //barco jugador 2
-            System.out.println("Es el turno de poner los barcos al Jugador 2: "+player.player1);
+            System.out.println("Es el turno de poner los barcos al Jugador 2: "+player.player2);
             libro.readLine();
             for(i=0;i<4;i++){
                 valido=false;
                 while(!valido){
                     try{
-                        System.out.println("Colocar barco "+(i+1)+": \n1-Horizontal(hacia a la derecha)\n2-Vertical(hacia abajo)\n0.Desea no continuar con el juego, "+player.player2+"?");
+                        System.out.println("Colocar barco "+(i+1)+": \n1-Horizontal(hacia a la derecha)\n2-Vertical(hacia abajo)\n");
                         opc_barco=Integer.parseInt(libro.readLine());
                         Limpiar.clean();
                         barco=false;
-                        //si quiere salir jugador 2
                             switch(opc_barco){
-                            case 0:
-                                System.out.println("Desea salirse del juego Si/No");
-                                String repu=(libro.readLine());
-                                    if (repu.equalsIgnoreCase("Si")) {
-                                        System.exit(0); // Cerrar el programa
-                                    }
-                                break;
                             case 1:
                             boat.size2=boat.TamañoBarco(boat.ilustracion2,boat.size2,i,boat.nbarco2,boat.barco2);//metodo encontrar el tamaño del barco
                             Limpiar.clean();
@@ -211,10 +195,10 @@ public class BattleShip {
                     player.MostrarTablero(player.table1);
                     valido2=false;
                     while(!valido2){
-                        System.out.println("Si quieres rendirte pon Fin");
+                        System.out.println("Si quieres rendirte pon EXIT");
                         System.out.println("Ingrese coordenadas:");
                         dato = libro.readLine();
-                        if(!dato.equalsIgnoreCase("FIN")){
+                        if(!dato.equalsIgnoreCase("EXIT")){
                             c.guardarcoords(dato, c.coordenadas3,i);//Llamado al metodo de pedir coordenadas
                             if(c.x==-1 || c.y==-1){
                                 System.out.println("Valores invalidos.");
@@ -245,10 +229,10 @@ public class BattleShip {
                     player.MostrarTablero(player.table2);
                     valido2=false;
                     while(!valido2){
-                        System.out.println("Si quieres rendirte pon Fin");
+                        System.out.println("Si quieres rendirte pon EXIT");
                         System.out.println("Ingrese coordenadas:");
                         dato = libro.readLine();
-                        if(!dato.equalsIgnoreCase("FIN")){
+                        if(!dato.equalsIgnoreCase("EXIT")){
                             c.guardarcoords(dato, c.coordenadas4,i);//Llamado al metodo de pedir coordenadas
                             if(c.x==-1 || c.y==-1){
                                 System.out.println("Valores invalidos.");
@@ -296,9 +280,6 @@ public class BattleShip {
             
         } while (!FindelJuego);
 
-
-        //boat.barcos(boat.size1,c.coordenadas1,boat.direccion1);
-        //boat.barcos(boat.size2,c.coordenadas2,boat.direccion2); 
         
     }// fin del static 
 
