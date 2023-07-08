@@ -67,32 +67,6 @@ public class Coordenadas {
         return coordenada;
     }
 
-
-    //metodo para disparar 
-    public boolean Disparar(String[][] table,String[][] table_d, String[] coordenada, int i)throws IOException{
-        boolean valido = false;
-        if (x >= 0 && x < table.length && y >= 0 && y < table[0].length) { // se verifica que este dentro del tamaño del arreglo 
-            if (table[x][y].equals("-")) {
-                System.out.println("Agua");
-                table_d[x][y] = "f";
-                valido=true;
-            }else if (table_d[x][y].equals("f")) { // se verifica si ya se hizo el disparo en ese lugar 
-                System.out.println("Ya has disparado aquí antes");
-            } else if (table_d[x][y].equals("X")) { // se verifica si ya se hizo el disparo en ese lugar 
-                System.out.println("Ya has disparado aquí antes");
-            }else if (table[x][y].equals("0")) {
-                System.out.println("Has impactado un barco");
-                table_d[x][y] = "X"; // Marcar como impacto en un barco con "X"
-                table[x][y] = "$"; //se cambiara por el 0
-                valido=true;
-            }
-           
-        } else {
-            System.out.println("Coordenadas inválidas");
-        }
-        return valido;
-    }
-
     //metodo para verificar que los barcos se han hundido
    
     public boolean todosBarcosHundidos(String[][] table) {

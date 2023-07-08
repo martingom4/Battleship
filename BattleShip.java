@@ -123,24 +123,44 @@ public class BattleShip {
                         }else{
                             switch(opc_barco){
                             case 1:
-                                    boat.size2=boat.TamañoBarco(boat.ilustracion2,boat.size2,i,boat.nbarco2,boat.barco2);//metodo encontrar el tamaño del barco
-                                    Limpiar.clean();
-                                    while(!barco){
-                                        player.MostrarTablero(player.table2); 
-                                        c.coor(c.coordenadas2,i);//Llamado al metodo de pedir coordenadas
-                                        barco=player.BarcoH(player.table2,boat.size2,c.x,c.y,i,boat.direccion2);//llamado al metodo para guardar barco en horizontal
-                                        player.MostrarTablero(player.table2);//llamado al metodo para mostrar tablero
+                            boat.size2=boat.TamañoBarco(boat.ilustracion2,boat.size2,i,boat.nbarco2,boat.barco2);//metodo encontrar el tamaño del barco
+                            Limpiar.clean();
+                            while(!barco){
+                                player.MostrarTablero(player.table2);
+                                valido2=false; 
+                                while(!valido2){
+                                    System.out.println("Ingrese coordenadas:");
+                                    dato = libro.readLine();
+                                    c.guardarcoords(dato, c.coordenadas2,i);//Llamado al metodo de pedir coordenadas
+                                    if(c.x==-1 || c.y==-1){
+                                        System.out.println("Valores invalidos.");
+                                    }else{
+                                        valido2=true;
                                     }
+                                } 
+                                barco=player.BarcoH(player.table2,boat.size2,c.x,c.y,i,boat.direccion2);//llamado al metodo para guardar barco en horizontal
+                                player.MostrarTablero(player.table2);//llamado al metodo para mostrar tablero
+                            }
                                 break;
                             case 2:
-                                    boat.size2=boat.TamañoBarco(boat.ilustracion2,boat.size2,i,boat.nbarco2,boat.barco2);//metodo encontrar el tamaño del barco
-                                    Limpiar.clean();
-                                    while(!barco){
-                                        player.MostrarTablero(player.table2); 
-                                        c.coor(c.coordenadas2,i);//Llamado al metodo de pedir coordenadas
-                                        barco=player.BarcoV(player.table2,boat.size2,c.x,c.y,i,boat.direccion2);//llamado al metodo para guardar barco en horizontal
-                                        player.MostrarTablero(player.table2);//llamado al metodo para mostrar tablero
+                            boat.size2=boat.TamañoBarco(boat.ilustracion2,boat.size2,i,boat.nbarco2,boat.barco2);//metodo encontrar el tamaño del barco
+                            Limpiar.clean();
+                            while(!barco){
+                                player.MostrarTablero(player.table2); 
+                                valido2=false;
+                                while(!valido2){
+                                    System.out.println("Ingrese coordenadas:");
+                                    dato = libro.readLine();
+                                    c.guardarcoords(dato, c.coordenadas2,i);//Llamado al metodo de pedir coordenadas
+                                    if(c.x==-1 || c.y==-1){
+                                        System.out.println("Valores invalidos.");
+                                    }else{
+                                        valido2=true;
                                     }
+                                } 
+                                barco=player.BarcoV(player.table2,boat.size2,c.x,c.y,i,boat.direccion2);//llamado al metodo para guardar barco en horizontal
+                                player.MostrarTablero(player.table2);//llamado al metodo para mostrar tablero
+                            }
                                 break;
                             default:
                                 System.out.println("Ingrese una opcion valida mostrada");
@@ -170,12 +190,7 @@ public class BattleShip {
             } else {
                 pJugador = player.player2;
             }
-
-            
-
-            i = 0;
-               
-                
+            i = 0;           
                 if (turno == 1) { //turno del jugador 1
                     System.out.println("Es turno del jugador: " + pJugador + ". Prepárate");
                     System.out.println("Tablero de disparos");
@@ -184,28 +199,32 @@ public class BattleShip {
                     player.MostrarTablero(player.table1);
                     valido2=false;
                     while(!valido2){
+                        System.out.println("Si quieres rendirte pon Fin");
                         System.out.println("Ingrese coordenadas:");
                         dato = libro.readLine();
-                        if(!dato.equals("FIN")){
+                        if(!dato.equalsIgnoreCase("FIN")){
                             c.guardarcoords(dato, c.coordenadas3,i);//Llamado al metodo de pedir coordenadas
                             if(c.x==-1 || c.y==-1){
                                 System.out.println("Valores invalidos.");
                             }else{
-                                valido2=c.Disparar(player.table2, player.table3, c.coordenadas3, i);
+                                valido2=player.Disparar(player.table2, player.table3, c.coordenadas3, i);
                                 System.out.println("Tablero de disparos");
-                                player.MostrarTablero(player.table3);  
+                                player.MostrarTablero(player.table3); 
+                               
                             }
+                            
                         }else{ //si el jugador 1 se rinde
                             FindelJuego=true;
                             System.out.println("El ganador es \n"+ player.player2);
                             boat.barco(boat.size2, c.coordenadas2, boat.direccion2);
-                            System.out.println("Y los barcos de "+ player.player1 + "son");
+                            System.out.println("Y los barcos de "+ player.player1 + " son");
                             boat.barco(boat.size1, c.coordenadas1, boat.direccion1);
                             break;
                         }
+                         Limpiar.clean();
                         
                     } 
-                       
+                //Limpiar.clean();    
                        
                 }else { //turno del jugador 2
                     System.out.println("Es turno del jugador: " + pJugador + ". Prepárate");
@@ -215,25 +234,29 @@ public class BattleShip {
                     player.MostrarTablero(player.table2);
                     valido2=false;
                     while(!valido2){
+                        System.out.println("Si quieres rendirte pon Fin");
                         System.out.println("Ingrese coordenadas:");
                         dato = libro.readLine();
-                        if(!dato.equals("FIN")){
+                        if(!dato.equalsIgnoreCase("FIN")){
                             c.guardarcoords(dato, c.coordenadas4,i);//Llamado al metodo de pedir coordenadas
                             if(c.x==-1 || c.y==-1){
                                 System.out.println("Valores invalidos.");
                             }else{
-                                valido2=c.Disparar(player.table1, player.table4, c.coordenadas4, i);
+                                valido2=player.Disparar(player.table1, player.table4, c.coordenadas4, i);
                                 System.out.println("Tablero de disparos");
                                 player.MostrarTablero(player.table4);
+                                
                             }
+                           
                         }else{ //si el jugador 2 se rinde
                             FindelJuego=true;
                             System.out.println("El ganador es \n"+ player.player1);
                             boat.barco(boat.size1, c.coordenadas1, boat.direccion1);
-                            System.out.println("Y los barcos de "+ player.player2 + "son");
+                            System.out.println("Y los barcos de "+ player.player2 + " son");
                             boat.barco(boat.size2, c.coordenadas2, boat.direccion2);
                             break;
                         }
+                         Limpiar.clean();
                     } 
                     
 
