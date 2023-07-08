@@ -114,7 +114,7 @@ public class BattleShip {
                                 System.out.println(player.player1+"Ha salido del juego");
                                 return;
                             }
-                        else{
+                        }else{
                             switch(opc_barco){
                             case 1:
                                     boat.size2=boat.TamañoBarco(boat.ilustracion2,boat.size2,i,boat.nbarco2,boat.barco2);//metodo encontrar el tamaño del barco
@@ -142,11 +142,12 @@ public class BattleShip {
                                 break;
                         }opc_barco=0; //Fin del switch
                         valido=true;
-                        }}
+                        }
                                                 
                     }catch(Exception e){
                         System.out.println("Ingrese dato valido");
                     }//fin try catch
+
                 }//fin while
             }//fin del for del barco jugador 2
             
