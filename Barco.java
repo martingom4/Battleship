@@ -10,6 +10,8 @@ public class Barco {
     String[] ilustracion2={"00","000","0000"};
     String[] direccion1=new String[4];//arreglo que guarda la direccion Horizontal o vertical del jugador 1
     String[] direccion2=new String[4];
+    String[] coordenadas1 = new String[4]; // arreglo que guarda las coordenadas de los barcos del jugador 1
+    String[] coordenadas2 = new String[4]; // arreglo que guarda las coordenadas de los barcos del jugador 2
 
     int[] size1=new int[4]; // arreglo que guarda los tamños de los barcos del jugador 1
     int[] size2=new int[4];
