@@ -173,7 +173,7 @@ public class BattleShip {
             }
         }//fin del for 
 
-    /* 
+     
         Limpiar.clean();
         int turno = 1; // Empieza el juego con el turno del jugador 1
         Boolean FindelJuego=false;
@@ -186,53 +186,77 @@ public class BattleShip {
                 pJugador = player.player2;
             }
 
-            System.out.println("Es turno del jugador: " + pJugador + ". Prepárate");
+            
 
             i = 0;
-
-            System.out.println("¿Deseas rendirte? (Sí/No)");
-            String opcionRendirse = libro.readLine();
-                if (opcionRendirse.equalsIgnoreCase("Si")) {
-                    System.out.println("El jugador " + pJugador + " se ha rendido");
-                    FindelJuego = true;
-                    // Mostrar detalles de los barcos del jugador contrario
-                    if (turno == 1) {
-                        System.out.println("El ganador es \n"+ player.player2);
-                        boat.barco(boat.size2, c.coordenadas2, boat.direccion2);
-                        System.out.println("Y los barcos de "+ player.player1 + "son");
-                        boat.barco(boat.size1, c.coordenadas1, boat.direccion1);
-                    } else {
-                        System.out.println("El ganador es \n"+ player.player1);
-                        boat.barco(boat.size1, c.coordenadas1, boat.direccion1);
-                        System.out.println("Y los barcos de "+ player.player2 + "son");
-                        boat.barco(boat.size2, c.coordenadas2, boat.direccion2);
-                    }
-                }
-                else {
-                System.out.println("Ingrese las coordenadas en las que quieres disparar");
                
                 
-                if (turno == 1) {
-                    Limpiar.clean();
+                if (turno == 1) { //turno del jugador 1
+                    System.out.println("Es turno del jugador: " + pJugador + ". Prepárate");
                     System.out.println("Tablero de disparos");
                     player.MostrarTablero(player.table3);
                     System.out.println("Estos son tus barcos");
                     player.MostrarTablero(player.table1);
-                    c.guardarcoords(c.coordenadas3, i);
-                    c.Disparar(player.table2, player.table3, c.coordenadas3, i);
-                    System.out.println("Tablero de disparos");
-                    player.MostrarTablero(player.table3);     
+                    valido2=false;
+                    while(!valido2){
+                        System.out.println("Ingrese coordenadas:");
+                        dato = libro.readLine();
+                        if(!dato.equals("FIN")){
+                            c.guardarcoords(dato, c.coordenadas3,i);//Llamado al metodo de pedir coordenadas
+                            if(c.x==-1 || c.y==-1){
+                                System.out.println("Valores invalidos.");
+                            }else{
+                                System.out.println("x:"+c.x);
+                                System.out.println("y:"+c.y);
+                                valido2=true;
+                                c.Disparar(player.table2, player.table3, c.coordenadas3, i);
+                                System.out.println("Tablero de disparos");
+                                player.MostrarTablero(player.table3);  
+                            }
+                        }else{ //si el jugador 1 se rinde
+                            FindelJuego=true;
+                            System.out.println("El ganador es \n"+ player.player2);
+                            boat.barco(boat.size2, c.coordenadas2, boat.direccion2);
+                            System.out.println("Y los barcos de "+ player.player1 + "son");
+                            boat.barco(boat.size1, c.coordenadas1, boat.direccion1);
+                            break;
+                        }
+                        
+                    } 
                        
-                }else {
-                    Limpiar.clean();
+                       
+                }else { //turno del jugador 2
+                    System.out.println("Es turno del jugador: " + pJugador + ". Prepárate");
                     System.out.println("Tablero de disparos");
                     player.MostrarTablero(player.table4);
                     System.out.println("Estos son tus barcos");
                     player.MostrarTablero(player.table2);
-                    c.guardarcoords(c.coordenadas4, i);
-                    c.Disparar(player.table1, player.table4, c.coordenadas4, i);
-                    System.out.println("Tablero de disparos");
-                    player.MostrarTablero(player.table4);
+                    valido2=false;
+                    while(!valido2){
+                        System.out.println("Ingrese coordenadas:");
+                        dato = libro.readLine();
+                        if(!dato.equals("FIN")){
+                            c.guardarcoords(dato, c.coordenadas4,i);//Llamado al metodo de pedir coordenadas
+                            if(c.x==-1 || c.y==-1){
+                                System.out.println("Valores invalidos.");
+                            }else{
+                                System.out.println("x:"+c.x);
+                                System.out.println("y:"+c.y);
+                                valido2=true;
+                                c.Disparar(player.table1, player.table4, c.coordenadas4, i);
+                                System.out.println("Tablero de disparos");
+                                player.MostrarTablero(player.table4);
+                            }
+                        }else{ //si el jugador 2 se rinde
+                            FindelJuego=true;
+                            System.out.println("El ganador es \n"+ player.player1);
+                            boat.barco(boat.size1, c.coordenadas1, boat.direccion1);
+                            System.out.println("Y los barcos de "+ player.player2 + "son");
+                            boat.barco(boat.size2, c.coordenadas2, boat.direccion2);
+                            break;
+                        }
+                    } 
+                    
 
                 }
                 
@@ -247,20 +271,22 @@ public class BattleShip {
                     System.out.println("Todos los barcos del jugador 1 se han hundido");
                     System.out.println("GANADOR -> Jugador 2: " + pJugador);
                     boat.barco(boat.size1, c.coordenadas1, boat.direccion1);
+                    FindelJuego = true;
                 }
                 if (c.todosBarcosHundidos(player.table2)) {
                     System.out.println("Todos los barcos del jugador 2 se han hundido");
                     System.out.println("GANADOR -> Jugador 1: " + pJugador);
                     boat.barco(boat.size2, c.coordenadas2, boat.direccion2);
+                    FindelJuego = true;
                 }
 
-            }
+            
         } while (!FindelJuego);
 
 
         //boat.barcos(boat.size1,c.coordenadas1,boat.direccion1);
         //boat.barcos(boat.size2,c.coordenadas2,boat.direccion2); 
-        */
+        
     }// fin del static 
 
     

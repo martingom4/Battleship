@@ -70,8 +70,6 @@ public class Coordenadas {
 
     //metodo para disparar 
     public void Disparar(String[][] table,String[][] table_d, String[] coordenada, int i)throws IOException{
-        x = coordenadasx(coordenada,i); //se guardan las coordenadas en x 
-        y = coordenadasy(coordenada,i );// se guardan las cordenadas en y 
 
         if (x >= 0 && x < table.length && y >= 0 && y < table[0].length) { // se verifica que este dentro del tamaño del arreglo 
             if (table[x][y].equals("-")) {
