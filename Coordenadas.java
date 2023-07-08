@@ -1,10 +1,14 @@
 import java.io.*;
 public class Coordenadas {
         BufferedReader libro = new BufferedReader(new InputStreamReader(System.in));
+        String player1, player2;
         String dato="";
         int x, y, i, t;
         Barco boat = new Barco();
-        
+        String[]coordenadas1=new String[4];//arreglo que guarda las coordenadas
+        String[]coordenadas2=new String[4];
+        String[]coordenadas3=new String[4];
+        String[]coordenadas4=new String[4];
          
         
        
