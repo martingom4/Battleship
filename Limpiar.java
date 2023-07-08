@@ -9,5 +9,5 @@ class Limpiar {
             // Manejar la excepción si se interrumpe la pausa
             e.printStackTrace();
         }
-    }
+    } 
 }

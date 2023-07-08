@@ -29,7 +29,7 @@ public class BattleShip {
         System.out.println("Bienvenido al juego Battleship");
         System.out.println("----------------------------------");
         player.Nombres();
-        
+
         
         // Limpiar pantalla
         Limpiar.clean();
