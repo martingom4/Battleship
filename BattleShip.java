@@ -58,8 +58,6 @@ public class BattleShip {
                                     if(c.x==-1 || c.y==-1){
                                         System.out.println("Valores invalidos.");
                                     }else{
-                                        System.out.println("x:"+c.x);
-                                        System.out.println("y:"+c.y);
                                         valido2=true;
                                     }
                                 }      
@@ -81,8 +79,6 @@ public class BattleShip {
                                     if(c.x==-1 || c.y==-1){
                                         System.out.println("Valores invalidos.");
                                     }else{
-                                        System.out.println("x:"+c.x);
-                                        System.out.println("y:"+c.y);
                                         valido2=true;
                                     }
                                 } 
@@ -130,8 +126,6 @@ public class BattleShip {
                                         if(c.x==-1 || c.y==-1){
                                             System.out.println("Valores invalidos.");
                                         }else{
-                                            System.out.println("x:"+c.x);
-                                            System.out.println("y:"+c.y);
                                             valido2=true;
                                         }
                                     } 
@@ -152,8 +146,6 @@ public class BattleShip {
                                         if(c.x==-1 || c.y==-1){
                                             System.out.println("Valores invalidos.");
                                         }else{
-                                            System.out.println("x:"+c.x);
-                                            System.out.println("y:"+c.y);
                                             valido2=true;
                                         }
                                     } 
@@ -206,10 +198,7 @@ public class BattleShip {
                             if(c.x==-1 || c.y==-1){
                                 System.out.println("Valores invalidos.");
                             }else{
-                                System.out.println("x:"+c.x);
-                                System.out.println("y:"+c.y);
-                                valido2=true;
-                                c.Disparar(player.table2, player.table3, c.coordenadas3, i);
+                                valido2=c.Disparar(player.table2, player.table3, c.coordenadas3, i);
                                 System.out.println("Tablero de disparos");
                                 player.MostrarTablero(player.table3);  
                             }
@@ -240,10 +229,7 @@ public class BattleShip {
                             if(c.x==-1 || c.y==-1){
                                 System.out.println("Valores invalidos.");
                             }else{
-                                System.out.println("x:"+c.x);
-                                System.out.println("y:"+c.y);
-                                valido2=true;
-                                c.Disparar(player.table1, player.table4, c.coordenadas4, i);
+                                valido2=c.Disparar(player.table1, player.table4, c.coordenadas4, i);
                                 System.out.println("Tablero de disparos");
                                 player.MostrarTablero(player.table4);
                             }
