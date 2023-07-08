@@ -87,9 +87,9 @@ public class Coordenadas {
             if (table[x][y].equals("-")) {
                 System.out.println("Agua");
                 table_d[x][y] = "f";
-            }else if (table[x][y].equals("f")) { // se verifica si ya se hizo el disparo en ese lugar 
+            }else if (table_d[x][y].equals("f")) { // se verifica si ya se hizo el disparo en ese lugar 
                 System.out.println("Ya has disparado aquí antes");
-            } else if (table[x][y].equals("X")) { // se verifica si ya se hizo el disparo en ese lugar 
+            } else if (table_d[x][y].equals("X")) { // se verifica si ya se hizo el disparo en ese lugar 
                 System.out.println("Ya has disparado aquí antes");
             }else if (table[x][y].equals("0")) {
             System.out.println("Has impactado un barco");

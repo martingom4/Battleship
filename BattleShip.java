@@ -161,24 +161,30 @@ public class BattleShip {
                 }
                 else {
                 System.out.println("Ingrese las coordenadas en las que quieres disparar");
-                System.out.println("Tablero de disparos");
+               
                 
                 if (turno == 1) {
+                    Limpiar.clean();
+                    System.out.println("Tablero de disparos");
                     player.MostrarTablero(player.table3);
+                    System.out.println("Estos son tus barcos");
                     player.MostrarTablero(player.table1);
                     c.coor(c.coordenadas3, i);
                     c.Disparar(player.table2, player.table3, c.coordenadas3, i);
                     System.out.println("Tablero de disparos");
-                    player.MostrarTablero(player.table3);
-
-                    //c.hundirbarco(player.table2, 1, player, boat);        
-                } else {
+                    player.MostrarTablero(player.table3);     
+                       
+                }else {
+                    Limpiar.clean();
+                    System.out.println("Tablero de disparos");
                     player.MostrarTablero(player.table4);
+                    System.out.println("Estos son tus barcos");
                     player.MostrarTablero(player.table2);
                     c.coor(c.coordenadas4, i);
                     c.Disparar(player.table1, player.table4, c.coordenadas4, i);
                     System.out.println("Tablero de disparos");
                     player.MostrarTablero(player.table4);
+
                 }
                 
                 if (turno == 1) {
