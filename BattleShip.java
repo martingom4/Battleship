@@ -143,10 +143,10 @@ public class BattleShip {
 
             System.out.println("¿Deseas rendirte? (Sí/No)");
             String opcionRendirse = libro.readLine();
-                if (opcionRendirse.equalsIgnoreCase("Si")) {
-                    System.out.println("El jugador " + pJugador + " se ha rendido");
-                    FindelJuego = true;
-                    // Mostrar detalles de los barcos del jugador contrario
+                if (opcionRendirse.equalsIgnoreCase("Si")) { // se verifica si lo que se pone es si 
+                    System.out.println("El jugador " + pJugador + " se ha rendido"); // se imprime cual es el jugador perdedor 
+                    FindelJuego = true;// 
+                    // Se muestran los detalles de los barcos 
                     if (turno == 1) {
                         System.out.println("El ganador es \n"+ player.player2);
                         boat.barco(boat.size2, c.coordenadas2, boat.direccion2);
