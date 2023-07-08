@@ -9,10 +9,17 @@ import java.io.*;
 public class BattleShip {
     public static void main(String[] args) throws IOException {
         //aca se pondra todo el codigo principal del proyecto
+        String[]coordenadas1=new String[4];//arreglo que guarda las coordenadas
+        String[]coordenadas2=new String[4];
+        String[]coordenadas3=new String[4];
+        String[]coordenadas4=new String[4];
+
+
         BufferedReader libro=new BufferedReader(new InputStreamReader(System.in));
         Jugador player =new Jugador();
         Coordenadas c = new Coordenadas();
         Barco boat = new Barco();
+        String dato="";
         Boolean barco=false;
        
         int opc_barco=0;
@@ -49,7 +56,7 @@ public class BattleShip {
                             Limpiar.clean();
                             while(!barco){ 
                                 player.MostrarTablero(player.table1);        
-                                c.coor(c.coordenadas1,i);//Llamado al metodo de pedir coordenadas
+                                c.coor(coordenadas1,i);//Llamado al metodo de pedir coordenadas
                                 barco=player.BarcoH(player.table1,boat.size1,c.x,c.y,i,boat.direccion1);//llamado al metodo para guardar barco en horizontal
                                 player.MostrarTablero(player.table1);//llamado al metodo para mostrar tablero
                                 
@@ -60,7 +67,7 @@ public class BattleShip {
                             Limpiar.clean();                      
                             while(!barco){
                                 player.MostrarTablero(player.table1);                           
-                                c.coor(c.coordenadas1,i);//Llamado la metodo de pedir coordenadas
+                                c.coor(coordenadas1,i);//Llamado la metodo de pedir coordenadas
                                 barco=player.BarcoV(player.table1,boat.size1,c.x,c.y,i,boat.direccion1);//llamado al metodo para guardar barco en vertical 
                                 player.MostrarTablero(player.table1);//llamado al metodo para mostrar tablero
                             }
@@ -97,7 +104,7 @@ public class BattleShip {
                                 Limpiar.clean();
                                 while(!barco){
                                     player.MostrarTablero(player.table2); 
-                                    c.coor(c.coordenadas2,i);//Llamado al metodo de pedir coordenadas
+                                    c.coor(coordenadas2,i);//Llamado al metodo de pedir coordenadas
                                     barco=player.BarcoH(player.table2,boat.size2,c.x,c.y,i,boat.direccion2);//llamado al metodo para guardar barco en horizontal
                                     player.MostrarTablero(player.table2);//llamado al metodo para mostrar tablero
                                 }
@@ -107,7 +114,7 @@ public class BattleShip {
                                 Limpiar.clean();
                                 while(!barco){
                                     player.MostrarTablero(player.table2); 
-                                    c.coor(c.coordenadas2,i);//Llamado al metodo de pedir coordenadas
+                                    c.coor(coordenadas2,i);//Llamado al metodo de pedir coordenadas
                                     barco=player.BarcoV(player.table2,boat.size2,c.x,c.y,i,boat.direccion2);//llamado al metodo para guardar barco en horizontal
                                     player.MostrarTablero(player.table2);//llamado al metodo para mostrar tablero
                                 }
@@ -149,68 +156,65 @@ public class BattleShip {
                     // Mostrar detalles de los barcos del jugador contrario
                     if (turno == 1) {
                         System.out.println("El ganador es \n"+ player.player2);
-                        boat.barco(boat.size2, c.coordenadas2, boat.direccion2);
+                        boat.barco(boat.size2, coordenadas2, boat.direccion2);
                         System.out.println("Y los barcos de "+ player.player1 + "son");
-                        boat.barco(boat.size1, c.coordenadas1, boat.direccion1);
+                        boat.barco(boat.size1, coordenadas1, boat.direccion1);
                     } else {
                         System.out.println("El ganador es \n"+ player.player1);
-                        boat.barco(boat.size1, c.coordenadas1, boat.direccion1);
+                        boat.barco(boat.size1, coordenadas1, boat.direccion1);
                         System.out.println("Y los barcos de "+ player.player2 + "son");
-                        boat.barco(boat.size2, c.coordenadas2, boat.direccion2);
+                        boat.barco(boat.size2, coordenadas2, boat.direccion2);
                     }
                 }
                 else {
-                System.out.println("Ingrese las coordenadas en las que quieres disparar");
-               
-                
-                if (turno == 1) {
-                    Limpiar.clean();
-                    System.out.println("Tablero de disparos");
-                    player.MostrarTablero(player.table3);
-                    System.out.println("Estos son tus barcos");
-                    player.MostrarTablero(player.table1);
-                    c.coor(c.coordenadas3, i);
-                    c.Disparar(player.table2, player.table3, c.coordenadas3, i);
-                    System.out.println("Tablero de disparos");
-                    player.MostrarTablero(player.table3);     
-                       
-                }else {
-                    Limpiar.clean();
-                    System.out.println("Tablero de disparos");
-                    player.MostrarTablero(player.table4);
-                    System.out.println("Estos son tus barcos");
-                    player.MostrarTablero(player.table2);
-                    c.coor(c.coordenadas4, i);
-                    c.Disparar(player.table1, player.table4, c.coordenadas4, i);
-                    System.out.println("Tablero de disparos");
-                    player.MostrarTablero(player.table4);
+                    if (turno == 1) {
+                        Limpiar.clean();
+                        System.out.println("Tablero de disparos");
+                        player.MostrarTablero(player.table3);
+                        System.out.println("Estos son tus barcos");
+                        player.MostrarTablero(player.table1);
+                        c.coor(coordenadas3, i);
+                        c.Disparar(player.table2, player.table3, coordenadas3, i);
+                        System.out.println("Tablero de disparos");
+                        player.MostrarTablero(player.table3);     
+                        
+                    }else {
+                        Limpiar.clean();
+                        System.out.println("Tablero de disparos");
+                        player.MostrarTablero(player.table4);
+                        System.out.println("Estos son tus barcos");
+                        player.MostrarTablero(player.table2);
+                        c.coor(coordenadas4, i);
+                        c.Disparar(player.table1, player.table4, coordenadas4, i);
+                        System.out.println("Tablero de disparos");
+                        player.MostrarTablero(player.table4);
+
+                    }
+                    
+                    if (turno == 1) {
+                        turno = 2; // turno al jugador 2
+                    } else {
+                        turno = 1; // turno al jugador 1
+                    }
+
+                    //que barco se hundio 
+                    if (c.todosBarcosHundidos(player.table1)) {
+                        System.out.println("Todos los barcos del jugador 1 se han hundido");
+                        System.out.println("GANADOR -> Jugador 2: " + pJugador);
+                        boat.barco(boat.size1, coordenadas1, boat.direccion1);
+                    }
+                    if (c.todosBarcosHundidos(player.table2)) {
+                        System.out.println("Todos los barcos del jugador 2 se han hundido");
+                        System.out.println("GANADOR -> Jugador 1: " + pJugador);
+                        boat.barco(boat.size2, coordenadas2, boat.direccion2);
+                    }
 
                 }
-                
-                if (turno == 1) {
-                    turno = 2; // turno al jugador 2
-                } else {
-                    turno = 1; // turno al jugador 1
-                }
-
-                //que barco se hundio 
-                if (c.todosBarcosHundidos(player.table1)) {
-                    System.out.println("Todos los barcos del jugador 1 se han hundido");
-                    System.out.println("GANADOR -> Jugador 2: " + pJugador);
-                    boat.barco(boat.size1, c.coordenadas1, boat.direccion1);
-                }
-                if (c.todosBarcosHundidos(player.table2)) {
-                    System.out.println("Todos los barcos del jugador 2 se han hundido");
-                    System.out.println("GANADOR -> Jugador 1: " + pJugador);
-                    boat.barco(boat.size2, c.coordenadas2, boat.direccion2);
-                }
-
-            }
         } while (!FindelJuego);
 
 
-        //boat.barcos(boat.size1,c.coordenadas1,boat.direccion1);
-        //boat.barcos(boat.size2,c.coordenadas2,boat.direccion2); 
+        //boat.barcos(boat.size1,coordenadas1,boat.direccion1);
+        //boat.barcos(boat.size2,coordenadas2,boat.direccion2); 
 
          
     }// fin del static 
