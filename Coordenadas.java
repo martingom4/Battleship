@@ -4,6 +4,7 @@ public class Coordenadas {
         String player1, player2;
         String dato="";
         int x, y, i, t;
+        Barco boat = new Barco();
         String[]coordenadas1=new String[4];//arreglo que guarda las coordenadas
         String[]coordenadas2=new String[4];
         String[]coordenadas3=new String[4];
@@ -60,7 +61,7 @@ public class Coordenadas {
         }
         return x;
     }
-    public String[] coor(String[]coordenada,int i) throws IOException{
+     public String[] coor(String[]coordenada,int i) throws IOException{
         boolean valido = false;
         while(!valido){
             System.out.println("Inserte coordenadas");
@@ -75,6 +76,7 @@ public class Coordenadas {
         }
         return coordenada;
     }
+
 
     //metodo para disparar 
     public void Disparar(String[][] table,String[][] table_d, String[] coordenada, int i)throws IOException{

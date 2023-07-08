@@ -177,29 +177,21 @@ public class BattleShip {
                 //que barco se hundio 
                 if (c.todosBarcosHundidos(player.table1)) {
                     System.out.println("Todos los barcos del jugador 1 se han hundido");
-                    System.out.println("GANADOR->Jugador 2:----"+pJugador+"-------");
-                    String[] sentido= new String[4];
-                    String[] coord=new String[4];
-                    int[] t= new int[4];
-
-                    boat.barcos(t, coord, sentido);
+                    System.out.println("GANADOR -> Jugador 2: " + pJugador);
+                    boat.barco(boat.size1, c.coordenadas1, boat.direccion1);
                 }
                 if (c.todosBarcosHundidos(player.table2)) {
                     System.out.println("Todos los barcos del jugador 2 se han hundido");
-                    System.out.println("GANADOR -> Jugador 1----"+pJugador+"-------");
-                    String[] sentido;
-                    String[] coord;
-                    int[] tam;
-
-                    boat.barcos(tam, coord, sentido);
-
+                    System.out.println("GANADOR -> Jugador 1: " + pJugador);
+                    boat.barco(boat.size2, c.coordenadas2, boat.direccion2);
                 }
+
             }
         } while (!FindelJuego);
 
 
-        boat.barcos(boat.size1,c.coordenadas1,boat.direccion1);
-        boat.barcos(boat.size2,c.coordenadas2,boat.direccion2); 
+        //boat.barcos(boat.size1,c.coordenadas1,boat.direccion1);
+        //boat.barcos(boat.size2,c.coordenadas2,boat.direccion2); 
 
          
     }// fin del static 
