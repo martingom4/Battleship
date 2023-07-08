@@ -77,17 +77,52 @@ public class BattleShip {
                                     barco=player.BarcoV(player.table1,boat.size1,c.x,c.y,i,boat.direccion1);//llamado al metodo para guardar barco en vertical 
                                     player.MostrarTablero(player.table1);//llamado al metodo para mostrar tablero
                                 }
-                                break;
-                            default:
-                                System.out.println("Ingrese una opcion valida mostrada");
-                                i--;
-                                break;
-                        }opc_barco=0; //Fin del switch
-                        valido=true;
-                        
-                        }
-                    }catch (Exception e){
-                        System.out.println("Ingrese dato valido");
+                            break;
+                        default:
+                            System.out.println("Ingrese una opcion valida mostrada");
+                            i--;
+                            break;
+                    }opc_barco=0; //Fin del switch
+                    valido=true;
+                }catch(Exception e){
+                    System.out.println("Ingrese dato valido");
+                }
+            }
+        }//fin del for 
+
+    
+        Limpiar.clean();
+        int turno = 1; // Empieza el juego con el turno del jugador 1
+        Boolean FindelJuego=false;
+
+        do {
+            String pJugador = "";
+            if (turno == 1) {
+                pJugador = player.player1;
+            } else {
+                pJugador = player.player2;
+            }
+
+            System.out.println("Es turno del jugador: " + pJugador + ". Prepárate");
+
+            i = 0;
+
+            System.out.println("¿Deseas rendirte? (Sí/No)");
+            String opcionRendirse = libro.readLine();
+                if (opcionRendirse.equalsIgnoreCase("Si")) { // se verifica si lo que se pone es si 
+                    System.out.println("El jugador " + pJugador + " se ha rendido"); // se imprime cual es el jugador perdedor 
+                    FindelJuego = true;// 
+                    // Se muestran los detalles de los barcos 
+                    if (turno == 1) {
+                        System.out.println("El ganador es \n"+ player.player2);
+                        boat.barco(boat.size2, c.coordenadas2, boat.direccion2);
+                        System.out.println("Y los barcos de "+ player.player1 + "son");
+                        boat.barco(boat.size1, c.coordenadas1, boat.direccion1);
+                    } else {
+                        System.out.println("El ganador es \n"+ player.player1);
+                        boat.barco(boat.size1, c.coordenadas1, boat.direccion1);
+                        System.out.println("Y los barcos de "+ player.player2 + "son");
+                        boat.barco(boat.size2, c.coordenadas2, boat.direccion2);
                     }
                 }
             }//fin del for 
