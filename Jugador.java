@@ -11,7 +11,7 @@ public class Jugador {
     String[][] table3=new String[9][9];// tablero para hacer los disparos del jugador 1 
     String[][] table4=new String[9][9];// tablero para hacer los disparos del jugador 2 
    
-    public boolean Disparar(String[][] table,String[][] table_d, String[] coordenada, int i)throws IOException{
+    public boolean Disparar(String[][] table,String[][] table_d, String[] coordenada, int i){
         boolean valido = false;
         x=var.coordenadasx(coordenada, i);
         y=var.coordenadasy(coordenada, i);

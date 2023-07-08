@@ -1,6 +1,4 @@
-import java.io.*;
 public class Coordenadas {
-        BufferedReader libro = new BufferedReader(new InputStreamReader(System.in));
         String dato="";
         int x, y, i, t;
         Barco boat = new Barco();
@@ -12,7 +10,7 @@ public class Coordenadas {
         
        
 
-    public int coordenadasy(String coordenada[], int i) throws IOException {
+    public int coordenadasy(String coordenada[], int i)  {
     int num;
     int y;
     try {
@@ -60,7 +58,7 @@ public class Coordenadas {
         }
         return x;
     }
-     public String[] guardarcoords(String dato, String[]coordenada,int i) throws IOException{
+     public String[] guardarcoords(String dato, String[]coordenada,int i){
         coordenada[i]=dato;
         x=coordenadasx(coordenada,i);
         y=coordenadasy(coordenada,i);
