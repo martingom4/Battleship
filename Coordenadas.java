@@ -1,7 +1,6 @@
 import java.io.*;
 public class Coordenadas {
         BufferedReader libro = new BufferedReader(new InputStreamReader(System.in));
-        String player1, player2;
         String dato="";
         int x, y, i, t;
         Barco boat = new Barco();
