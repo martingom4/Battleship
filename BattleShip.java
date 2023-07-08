@@ -49,7 +49,7 @@ public class BattleShip {
                             Limpiar.clean();
                             while(!barco){ 
                                 player.MostrarTablero(player.table1);        
-                                c.coor(c.coordenadas1,i);//Llamado al metodo de pedir coordenadas
+                                c.guardarcoords(c.coordenadas1,i);//Llamado al metodo de pedir coordenadas
                                 barco=player.BarcoH(player.table1,boat.size1,c.x,c.y,i,boat.direccion1);//llamado al metodo para guardar barco en horizontal
                                 player.MostrarTablero(player.table1);//llamado al metodo para mostrar tablero
                                 
@@ -60,7 +60,7 @@ public class BattleShip {
                             Limpiar.clean();                      
                             while(!barco){
                                 player.MostrarTablero(player.table1);                           
-                                c.coor(c.coordenadas1,i);//Llamado la metodo de pedir coordenadas
+                                c.guardarcoords(c.coordenadas1,i);//Llamado la metodo de pedir coordenadas
                                 barco=player.BarcoV(player.table1,boat.size1,c.x,c.y,i,boat.direccion1);//llamado al metodo para guardar barco en vertical 
                                 player.MostrarTablero(player.table1);//llamado al metodo para mostrar tablero
                             }
@@ -97,7 +97,7 @@ public class BattleShip {
                                 Limpiar.clean();
                                 while(!barco){
                                     player.MostrarTablero(player.table2); 
-                                    c.coor(c.coordenadas2,i);//Llamado al metodo de pedir coordenadas
+                                    c.guardarcoords(c.coordenadas2,i);//Llamado al metodo de pedir coordenadas
                                     barco=player.BarcoH(player.table2,boat.size2,c.x,c.y,i,boat.direccion2);//llamado al metodo para guardar barco en horizontal
                                     player.MostrarTablero(player.table2);//llamado al metodo para mostrar tablero
                                 }
@@ -107,7 +107,7 @@ public class BattleShip {
                                 Limpiar.clean();
                                 while(!barco){
                                     player.MostrarTablero(player.table2); 
-                                    c.coor(c.coordenadas2,i);//Llamado al metodo de pedir coordenadas
+                                    c.guardarcoords(c.coordenadas2,i);//Llamado al metodo de pedir coordenadas
                                     barco=player.BarcoV(player.table2,boat.size2,c.x,c.y,i,boat.direccion2);//llamado al metodo para guardar barco en horizontal
                                     player.MostrarTablero(player.table2);//llamado al metodo para mostrar tablero
                                 }
@@ -169,7 +169,7 @@ public class BattleShip {
                     player.MostrarTablero(player.table3);
                     System.out.println("Estos son tus barcos");
                     player.MostrarTablero(player.table1);
-                    c.coor(c.coordenadas3, i);
+                    c.guardarcoords(c.coordenadas3, i);
                     c.Disparar(player.table2, player.table3, c.coordenadas3, i);
                     System.out.println("Tablero de disparos");
                     player.MostrarTablero(player.table3);     
@@ -180,7 +180,7 @@ public class BattleShip {
                     player.MostrarTablero(player.table4);
                     System.out.println("Estos son tus barcos");
                     player.MostrarTablero(player.table2);
-                    c.coor(c.coordenadas4, i);
+                    c.guardarcoords(c.coordenadas4, i);
                     c.Disparar(player.table1, player.table4, c.coordenadas4, i);
                     System.out.println("Tablero de disparos");
                     player.MostrarTablero(player.table4);

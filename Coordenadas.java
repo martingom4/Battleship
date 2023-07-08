@@ -60,7 +60,7 @@ public class Coordenadas {
         }
         return x;
     }
-     public String[] coor(String[]coordenada,int i) throws IOException{
+     public String[] guardarcoords(String[]coordenada,int i) throws IOException{
         boolean valido = false;
         while(!valido){
             System.out.println("Inserte coordenadas");
