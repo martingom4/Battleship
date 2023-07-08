@@ -1,7 +1,6 @@
 import java.io.*;
 public class Coordenadas {
         BufferedReader libro = new BufferedReader(new InputStreamReader(System.in));
-        String player1, player2;
         String dato="";
         int x, y, i, t;
         Barco boat = new Barco();
@@ -61,46 +60,14 @@ public class Coordenadas {
         }
         return x;
     }
-     public String[] coor(String[]coordenada,int i) throws IOException{
-        boolean valido = false;
-        while(!valido){
-            System.out.println("Inserte coordenadas");
-            coordenada[i]=libro.readLine();
-            x=coordenadasx(coordenada,i);
-            y=coordenadasy(coordenada,i);
-            if(x==-1 || y==-1){
-                System.out.println("Valores invalidos.");
-            }else{
-                valido=true;
-            }
-        }
+     public String[] guardarcoords(String dato, String[]coordenada,int i) throws IOException{
+        coordenada[i]=dato;
+        x=coordenadasx(coordenada,i);
+        y=coordenadasy(coordenada,i);
         return coordenada;
     }
-
-
     //metodo para disparar 
-    public void Disparar(String[][] table,String[][] table_d, String[] coordenada, int i)throws IOException{
-        x = coordenadasx(coordenada,i); //se guardan las coordenadas en x 
-        y = coordenadasy(coordenada,i );// se guardan las cordenadas en y 
-
-        if (x >= 0 && x < table.length && y >= 0 && y < table[0].length) { // se verifica que este dentro del tamaño del arreglo 
-            if (table[x][y].equals("-")) {
-                System.out.println("Agua");
-                table_d[x][y] = "f";
-            }else if (table_d[x][y].equals("f")) { // se verifica si ya se hizo el disparo en ese lugar 
-                System.out.println("Ya has disparado aquí antes");
-            } else if (table_d[x][y].equals("X")) { // se verifica si ya se hizo el disparo en ese lugar 
-                System.out.println("Ya has disparado aquí antes");
-            }else if (table[x][y].equals("0")) {
-            System.out.println("Has impactado un barco");
-            table_d[x][y] = "X"; // Marcar como impacto en un barco con "X"
-            table[x][y] = "$"; //se cambiara por el 0
-            }
-           
-        } else {
-            System.out.println("Coordenadas inválidas");
-        }
-    }
+   
 
     //metodo para verificar que los barcos se han hundido
    

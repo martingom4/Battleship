@@ -4,11 +4,40 @@ public class Jugador {
     Barco boat=new Barco();
     String player1, player2;
     String dato;
+    int x,y;
+    Coordenadas var= new Coordenadas();
     String[][] table1=new String[9][9];//tablero para jugador 1
     String[][] table2=new String[9][9];//tablero para jugador 2
     String[][] table3=new String[9][9];// tablero para hacer los disparos del jugador 1 
     String[][] table4=new String[9][9];// tablero para hacer los disparos del jugador 2 
    
+    public boolean Disparar(String[][] table,String[][] table_d, String[] coordenada, int i)throws IOException{
+        boolean valido = false;
+        x=var.coordenadasx(coordenada, i);
+        y=var.coordenadasy(coordenada, i);
+        if (x >= 0 && x < table.length && y >= 0 && y < table[0].length) { // se verifica que este dentro del tamaño del arreglo 
+            if (table[x][y].equals("-")) {
+                System.out.println("Agua");
+                table_d[x][y] = "f";
+                valido=true;
+            }else if (table_d[x][y].equals("f")) { // se verifica si ya se hizo el disparo en ese lugar 
+                System.out.println("Ya has disparado aquí antes");
+            } else if (table_d[x][y].equals("X")) { // se verifica si ya se hizo el disparo en ese lugar 
+                System.out.println("Ya has disparado aquí antes");
+            }else if (table[x][y].equals("0")) {
+                System.out.println("Has impactado un barco");
+                table_d[x][y] = "X"; // Marcar como impacto en un barco con "X"
+                table[x][y] = "$"; //se cambiara por el 0
+                valido=true;
+            }
+           
+        } else {
+            System.out.println("Coordenadas inválidas");
+        }
+        return valido;
+    }
+
+
     //INGRESAR NOMBRES DE JUGADORES
     public void Nombres() throws IOException{
         System.out.println("Ingrese jugador 1:");
@@ -27,17 +56,22 @@ public class Jugador {
     }
 
     // METODO PARA IMPRIMIR EL TABLERO (poner en archivo tablero)
-    public String[][] MostrarTablero(String table[][]){
-        char letras []= {'A','B','C','D','E','F','G','H','I'};
-        System.out.print("      1     2     3     4     5     6     7     8     9 \n");
-        for(int i=0;i<table.length;i++){
-            System.out.printf("\n %s",letras[i]);
-            for(int j=0;j<table.length;j++){
-                System.out.printf("%5s ",table[i][j]+" ");
+    public void MostrarTablero(String[][] tablero) {
+        char[] letras = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'};
+        System.out.println("  ╔═══════════════════════════╗");
+        System.out.println("  \u2551 1  2  3  4  5  6  7  8  9 \u2551");
+        System.out.println("  ╠═══════════════════════════╣");
+        for (int i = 0; i < tablero.length; i++) {
+            System.out.print(letras[i] + " \u2551");
+            
+            for (int j = 0; j < tablero[i].length; j++) {
+                System.out.print(" " + tablero[i][j] + " ");
             }
-            System.out.println();
+            
+            System.out.println("\u2551");
         }
-        return table;
+        
+        System.out.println("  ╚═══════════════════════════╝");
     }
     
     //METODO PARA BARCO HORIZONTAL
@@ -95,6 +129,7 @@ public class Jugador {
         }
         return barco;
     }
+    
    
 
    
