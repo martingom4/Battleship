@@ -6,6 +6,7 @@
  * - Martin Gomez
  */
 
+ 
 public class Coordenadas {
     int x, y, i;
     Barco boat = new Barco();
@@ -73,7 +74,6 @@ public class Coordenadas {
         x=CoordenadasX(coordenada,i);
         y=CoordenadasY(coordenada,i);
         return coordenada;
-        
     }
 
 }
