@@ -119,11 +119,12 @@ public class BattleShip {
                     valido=true;
                 }catch (Exception e){
                     System.out.println("Ingrese dato valido");
-                }//fin try catch
-            }//fin de while valido
-        }//fin del for de barcos jugador 1
+                }
+            }
+        }//fin del for 
     
-        libro.readLine();
+
+        // Limpiar pantalla
         Limpiar.clean();
 
         //Jugador 2 coloca sus barcos
