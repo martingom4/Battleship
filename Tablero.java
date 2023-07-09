@@ -1,14 +1,22 @@
+/*
+ * Integrantes:
+ * - David Zhang
+ * - Nicole Bustamante
+ * - Anilys Rodriguez
+ * - Martin Gomez
+ */
+
 public class Tablero{
     //METODO CREAR TABLERO
     public void CrearTablero(String table[][]){
         for(int i=0;i<table.length;i++){
             for(int j=0;j<table.length;j++){
                 table[i][j]="-";
-            }
-        }
+            }//fin de for
+        }//fin de for
     }
 
-    // METODO PARA IMPRIMIR EL TABLERO (poner en archivo tablero)
+    // METODO PARA IMPRIMIR EL TABLERO
     public void MostrarTablero(String[][] tablero) {
         char[] letras = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'};
         System.out.println("  ╔═══════════════════════════╗");
@@ -19,10 +27,10 @@ public class Tablero{
             
             for (int j = 0; j < tablero[i].length; j++) {
                 System.out.print(" " + tablero[i][j] + " ");
-            }
+            }//fin de for
             
             System.out.println("\u2551");
-        }
+        }//fin de for
         
         System.out.println("  ╚═══════════════════════════╝");
     }
