@@ -305,7 +305,7 @@ public class BattleShip {
                     System.out.println("Los barcos de" +player.player1 + " eran");
                     boat.ListaBarcos(boat.size1, c.coordenadas1, boat.direccion1);
                     FindelJuego = true;
-                    
+
                 }
                 if (c.todosBarcosHundidos(player.table2)) {
                     System.out.println("Todos los barcos del jugador 2 se han hundido");
