@@ -7,8 +7,7 @@
  */
 
 public class Coordenadas {
-    String dato="";
-    int x, y, i, t;
+    int x, y, i;
     Barco boat = new Barco();
     String[]coordenadas1=new String[4];//arreglo que guarda las coordenadas
     String[]coordenadas2=new String[4];
@@ -75,5 +74,5 @@ public class Coordenadas {
         y=CoordenadasY(coordenada,i);
         return coordenada;
     }
-    
+
 }
