@@ -117,7 +117,6 @@ public class BattleShip {
         }//fin del for 
     
 
-        libro.readLine();
         // Limpiar pantalla
         Limpiar.clean();
 
