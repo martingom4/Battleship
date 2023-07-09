@@ -63,6 +63,7 @@ public class Coordenadas {
         x=coordenadasx(coordenada,i);
         y=coordenadasy(coordenada,i);
         return coordenada;
+        
     }
     //metodo para disparar 
    
