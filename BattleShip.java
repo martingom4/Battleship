@@ -121,7 +121,7 @@ public class BattleShip {
                     System.out.println("Ingrese dato valido");
                 }//fin de try catch
             }//fin de while valido
-        }//fin del for 
+        }//fin del for de barcos jugador 1
     
         Limpiar.clean();
 
